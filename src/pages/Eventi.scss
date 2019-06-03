@@ -1,0 +1,228 @@
+@import './../variables.scss';
+
+// h2 {
+//     padding: 10px
+// }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+// .on-screen {
+//     .card {
+//         padding: 3px;
+//         position: relative;
+//         @include gradient(set-attribute(web, angle), set-attribute(web, start), set-attribute(web, end));
+//         box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+//         margin: 15px;
+//         border-radius: 5px;
+
+//         &.card-eventi {
+//             .card-content {
+//                 // display: flex;
+
+//                 background: #fff;
+//                 color: white;
+//                 border-radius: 5px;
+//                 overflow: hidden;
+//                 color: black;
+
+//                 .content {
+//                     position: relative;
+//                     max-width: 60%;
+//                     padding: 5px;
+//                     // padding-left: 10%;
+//                     font-size: 1em;
+//                     // left: -10%;
+//                     margin: 1em auto;
+
+//                     h3 {
+//                         position: relative;
+//                         top: 0;
+//                         font-size: 1.1em
+//                     }
+
+//                     p {
+//                         font-size: 0.9em
+//                     }
+//                 }
+
+//                 .card-img {
+//                     position: relative;
+//                     // left: -10%;
+//                     width: 100%;
+//                     object-fit: cover;
+//                     height: auto;
+//                     // -webkit-clip-path: circle(70px at top left);
+//                     // clip-path: circle(135px at top left);
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// #group-card-eventi {
+//     width: 100%;
+//     overflow-x: scroll;
+//     flex-direction: row;
+//     //     height: 100vh;
+//     overflow-y: scroll;
+//     scroll-snap-destination: 0 0;
+//     scroll-snap-type: mandatory;
+//     scroll-snap-points-x: repeat(87vw);
+//     scroll-snap-type: x mandatory;
+
+//     .card-eventi {
+//         margin: 15px;
+//         min-width: 80vw;
+//         transform: scale(0.9);
+//         scroll-snap-align: center;
+//         pointer-events: all;
+
+//         * {
+//             pointer-events: none;
+//         }
+
+//         &:last-child {
+//             padding-right: 8em;
+//         }
+
+//         .card-content {
+//             box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+
+//             img {
+//                 opacity: 0.5;
+//             }
+
+//             .card-img {
+//                 position: relative;
+//                 width: 100%;
+//                 object-fit: cover;
+//                 height: auto;
+//                 max-height: 200px;
+//             }
+
+//             background: #fff;
+//             color: white;
+//             border-radius: 5px;
+//             overflow: hidden;
+//             color: black;
+
+//             .content {
+//                 position: relative;
+//                 padding: 5px;
+//                 font-size: 1em;
+//                 margin: 1em auto;
+
+//                 h3 {
+//                     text-align: center;
+//                     font-size: 1.1em
+//                 }
+
+//                 p {
+//                     display: none;
+//                     font-size: 0.9em
+//                 }
+//             }
+//         }
+
+//         &.focus {
+//             opacity: 1;
+//             z-index: 2;
+
+//             .card-content {
+//                 box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.7);
+
+//                 img {
+//                     opacity: 1;
+//                 }
+
+//             }
+
+//             .card-content {
+//                 min-width: 90vw;
+//             }
+//         }
+//     }
+// }
+// .card-eventi.focus.open {
+// min-width: 100vw;
+
+//         width: 100vw;
+//         background-color: red;
+//         .card-content .content p {
+//             display: block;
+
+//         }
+
+
+// }
+.content {
+    height: 79vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#group-card-eventi {
+    padding: 15px;
+    // height: 79vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    //     scroll-snap-destination: 0 0;
+    //     scroll-snap-type: mandatory;
+    //     scroll-snap-points-y: repeat(87vw);
+    //     scroll-snap-type: y mandatory;
+
+    .card {
+        width: 100%;
+        overflow: hidden;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        margin-bottom: 15px;
+        pointer-events: all;
+
+        .card-img {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            object-fit: cover;
+            height: auto;
+            max-height: 200px;
+        }
+
+        .content {
+            height: auto;
+            padding: 1em;
+
+            p {
+                display: none;
+            }
+
+            h3 {
+                padding-bottom: 1em;
+            }
+
+
+            #data {
+
+                padding: .6em 1.5em;
+                text-align: center;
+                border-top: 1px solid lightgray;
+                margin-top: .5em;
+
+            }
+        }
+        * {
+            pointer-events: none;
+        }
+
+        &.open {
+            .content p {
+                display: block;
+            }
+        }
+    }
+}
