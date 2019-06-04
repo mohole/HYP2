@@ -62,6 +62,11 @@ $colors: ('web': (start: rgba(39, 14, 122, 1),
   border-color: linear-gradient($angolo*2, $colore1 0%, $colore2 100%);
   background-repeat: no-repeat;
 }
+@mixin shadow {
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.4);
+}
 
 $font-text: 'Open Sans',
 sans-serif;

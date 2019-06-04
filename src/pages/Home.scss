@@ -20,36 +20,109 @@
     width: 90%;
     height: 70%;
     margin-top: 10vh;
-    background-color: red;
+
     display: flex;
     flex-direction: column;
     position: relative;
     .summary{
         width: 100%;
-        background-color: blue;
-        height: 37.5%;
+        
+        height: 55.5%;
         position: relative;
         display: flex;
         flex-direction: column;
+        @include shadow();
         img{
             position: absolute;
             left: 50%;
             background-color: red;
             transform: translate(-50%,-50%);
             border-radius: 50%;
-            -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-            -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-             box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+            @include shadow();
+        }
+        p{
+            text-align: center;
+        }
+        p:nth-child(2){
+            padding-top: 70px;
         }
     }
+    .summary-lessons{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        
+        .first-box,.second-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            background-color: rgb(240, 239, 239);
+
+            @include shadow();
+        }
+        .circle{
+            width: 100%
+        }
+
+    }
+    circle{
+        fill:none;
+        stroke-width: 5px;
+        stroke: white;
+        stroke-linecap: round;
+    }
+    .second{
+        stroke: red;
+        stroke-dasharray: 100;
+    }
+   /*  .circle:after{
+        content: '';
+        
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        background-color: green;
+    } */
     .summary-rewards{
         width: 100%;
-        background-color: yellow;
-        height: 25%;
+        height: 19.5%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: scroll;
+        .achievement{
+            width: 90px;
+            height: 90px;
+            border-radius: 5px;
+            margin: 4%;
+            background-color: red;
+        }
     }
+
     .summary-lessonDay{
         width: 100%;
-        background-color: blue;
-        height: 37.5%;
+        height:25%;
+        padding-top: 3%;
+        @include shadow();
+        p{
+            margin-left: 3%;
+        }
+        p:nth-child(2){
+            padding-top: 2%;
+        }
+        p:nth-child(2),p:nth-child(3){
+            font-weight:600; 
+        }
+        .scrolla{
+            text-align: center;
+        }
     }
 }
