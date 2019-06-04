@@ -30,6 +30,7 @@ class Tabbar extends React.Component {
   constructor() {
     super();
     this.state = {
+      // onRefresh: true,
       active: "3",
       page: "/",
       notifiche: {
@@ -45,23 +46,35 @@ class Tabbar extends React.Component {
 
   componentDidMount() {
     let selector = document.getElementById("selector");
+
     let activeItem = document.getElementsByName("focus")[0];
 
-    // in caso di refresh
-    if (localStorage.getItem('paginaCorrente') !== null) {
-        let local = localStorage.getItem('paginaCorrente');
+    if (document.getElementsByName("focus")[0] === undefined) {
+      // this.setState({
+      //   ...this.state,
+      //   onRefresh: false
+      // })
+      if (localStorage.getItem('paginaCorrente') === null)
+        alert('no data');
+      
+      let local = localStorage.getItem('paginaCorrente');
 
-        let item = document.querySelectorAll('[data-label="'+local+'"]')[0];
-        item.setAttribute("name", "focus");
-        // console.log(item);
-        // console.log(local)
-        return activeItem = item;
+      let item = document.querySelectorAll('[data-label="'+local+'"]')[0];
+      item.setAttribute("name", "focus");
+      console.log(item);
+      console.log(local)
+
+      activeItem = item;
     }
+
+   
+
+    console.log(activeItem)
 
     selector.style.width = activeItem.clientHeight + "px";
     selector.style.height = activeItem.clientHeight + "px";
     selector.style.left =
-      activeItem.offsetLeft + (activeItem.clientHeight / 100) * 10 + "px";
+    activeItem.offsetLeft + (activeItem.clientHeight / 100) * 10 + "px";
     // console.log(activeItem);
 
     // notifiche
@@ -93,13 +106,18 @@ class Tabbar extends React.Component {
       let span = document.getElementById("span-eventi");
       span.style.display = "none";
     }
-    if (this.state.notifiche.index !== 0) {
+    if (this.state.notifiche.index > 0) {
       let span = document.getElementById("span-index");
       span.append(this.state.notifiche.index);
     } else {
       let span = document.getElementById("span-index");
       span.style.display = "none";
     }
+
+    // this.setState({
+    //   ...this.state,
+    //   onRefresh: true
+    // })
 
   }
 
@@ -141,7 +159,7 @@ class Tabbar extends React.Component {
     });
     // console.log(this.state);
     localStorage.setItem('paginaCorrente', e.target.parentNode.dataset.label);
-
+// console.log(e.target.parentNode.dataset.label)
   }
 
   render() {
@@ -222,7 +240,7 @@ class Tabbar extends React.Component {
                 </svg>
               </Link>
               <Link
-                name="focus"
+                name={this.state.onRefresh ? '' : 'focus'}
                 to="/"
                 onClick={this.animateTabbar.bind(this)}
                 href="home"
