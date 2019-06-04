@@ -130,7 +130,7 @@ class Eventi extends React.Component {
     });
     return (
       <div className="content" onScroll={this.scrollCards.bind(this)}>
-        {this.state.loading ? "in caricamento" : ""}
+        {this.state.loading ? <p>Caricamento</p> : ""}
         <header />
         <div id="group-card-eventi">{cards}</div>
       </div>

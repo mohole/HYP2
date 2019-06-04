@@ -67,8 +67,6 @@ class Tabbar extends React.Component {
       activeItem = item;
     }
 
-   
-
     console.log(activeItem)
 
     selector.style.width = activeItem.clientHeight + "px";
@@ -208,7 +206,7 @@ class Tabbar extends React.Component {
                 </svg>
               </Link>
               <Link
-                name={this.state.onRefresh ? '' : 'focus'}
+                name={localStorage.getItem('paginaCorrente') !== null ? '' : 'focus'}
                 to="/"
                 onClick={this.animateTabbar.bind(this)}
                 data-label="index"
