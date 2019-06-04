@@ -22,17 +22,34 @@ class Home extends React.Component{
                             <img src="#" alt="img_students" width="120" height="120"/>
                             <p>Nome Studente</p>
                             <p>Corso Studente</p>
-                            <sectione className="summary-lessons">
-                                <div className="circle"></div>
-                                <div className="circle"></div>
-                            </sectione>
+                            <section className="summary-lessons">
+                                <div className="first-box">
+                                    <svg className="circle" viewBox="0 0 40 40">
+                                        <circle r="15.9154943092" cy="20" cx="20" />
+                                        <circle className="second"  r="15.9154943092" cy="20" cx="20" strokeDashoffset="25" transform="rotate(-90,20,20)"/>
+                                    </svg>
+                                </div>
+                                <div className="second-box">
+                                    <svg className="circle" viewBox="0 0 40 40">
+                                        <circle r="15.9154943092" cy="20" cx="20" />
+                                        <circle className="second"  r="15.9154943092" cy="20" cx="20" strokeDashoffset="25" transform="rotate(-90,20,20)"/>
+                                    </svg>
+                                </div>
+                            </section>
                         </section>
                         <section className="summary-rewards">
                             <div className="achievement"></div>
                             <div className="achievement"></div>
                             <div className="achievement"></div>
+
                         </section>
                         <section className="summary-lessonDay">
+                            <p>Lunedì 2 Aprile</p>
+                            <p>Workshop | Mobile App</p>
+                            <p>Zinetti</p>
+                            <p>Armando</p>
+                            <p>14:30 - 18:00</p>
+                            <p className="scrolla">scrolla</p>
 
                         </section>
                     </section>
