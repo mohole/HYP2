@@ -6,11 +6,7 @@ import Tabbar from './components/Tabbar'
 
 class Login extends React.Component {
   constructor() {
-    
     super();
-   
-   
-    
     this.handleClick = this.handleClick.bind(this);
     this.state = {
      error: false,
@@ -22,6 +18,7 @@ class Login extends React.Component {
        first:true
      }
    }
+   localStorage.setItem('paginaCorrente', 'index');
  }
  randomBG(){
   let widthForm=document.querySelector("form").offsetWidth;
