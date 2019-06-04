@@ -83,14 +83,7 @@
         stroke: red;
         stroke-dasharray: 100;
     }
-   /*  .circle:after{
-        content: '';
-        
-        width: 95px;
-        height: 95px;
-        border-radius: 50%;
-        background-color: green;
-    } */
+  
     .summary-rewards{
         width: 100%;
         height: 19.5%;
@@ -98,15 +91,19 @@
         flex-direction: row;
         align-items: center;
         overflow-x: scroll;
+        flex-wrap: nowrap;
         .achievement{
             width: 90px;
             height: 90px;
             border-radius: 5px;
             margin: 4%;
             background-color: red;
+            flex: 0 0 auto;
         }
     }
-
+    .percentage{
+        position: absolute;
+    }
     .summary-lessonDay{
         width: 100%;
         height:25%;
