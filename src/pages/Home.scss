@@ -1,16 +1,11 @@
 @import './../variables.scss';
 
-.container-home{
-    display: flex;
-    flex-direction: column;
-    // width: 100vw;
-    // height: 100vh;
-    // max-width: 100vw;
-    // min-height: 100vh;
+.container-home{    
     width: 100%;
-    height: 100%;
+    height: 79vh;
     align-items: center;
     overflow-x: hidden;
+    overflow-y: scroll;
     position: relative;
     &>*{
         box-sizing: border-box;
@@ -18,16 +13,12 @@
 }
 .real-container{
     width: 90%;
-    height: 70%;
-    margin-top: 10vh;
-
+    margin: 20% auto 0;
     display: flex;
     flex-direction: column;
     position: relative;
     .summary{
         width: 100%;
-        
-        height: 55.5%;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -55,6 +46,7 @@
         align-items: center;
         width: 100%;
         height: 100%;
+        padding: 5% 0;
         
         .first-box,.second-box{
             display: flex;
@@ -86,7 +78,6 @@
   
     .summary-rewards{
         width: 100%;
-        height: 19.5%;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -106,8 +97,8 @@
     }
     .summary-lessonDay{
         width: 100%;
-        height:25%;
         padding-top: 3%;
+        margin-bottom: 5%;
         @include shadow();
         p{
             margin-left: 3%;
