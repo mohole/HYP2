@@ -3,8 +3,9 @@
   margin: 0;
   padding: 0;
 }
-body::-webkit-scrollbar { 
-  display: none; 
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 // VARIABILI 
@@ -50,6 +51,7 @@ $colors: ('web': (start: rgba(39, 14, 122, 1),
   background: linear-gradient($angolo*2, $colore1 0%, $colore2 100%);
   background-repeat: no-repeat;
 }
+
 @mixin border-gradient($angolo, $colore1, $colore2) {
   border: 1px solid;
   border-color: -moz-linear-gradient(9.28% 72.02% $angolo, $colore1 0%, $colore2 100%);
@@ -78,6 +80,7 @@ body {
   font-family: $font-text;
   background-color: rgb(250, 250, 250);
 }
+
 input {
   font-size: 1em;
 }
@@ -112,6 +115,10 @@ header {
 section.home {
   padding-top: 10vh;
   overflow: hidden;
+  max-width: 500px;
+  transform: translateX(50vw);
+  background-color: #fff;
+  // margin: 0 auto;
 }
 
 // prova

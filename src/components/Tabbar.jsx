@@ -8,21 +8,20 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // import icona1 from "../icone/clock.svg";
 
-
 function Orario() {
   return (
-    <>
+    <main className="container-rewards">
       <header />
-      <h2>Rewards</h2>
-    </>
+      <h2>Feedback e rewards</h2>
+    </main>
   );
 }
 function Note() {
   return (
-    <>
+    <main className="container-getback">
       <header />
-      <h2>Prenotazione aule</h2>
-    </>
+      <h2> Get back</h2>
+    </main>
   );
 }
 
@@ -45,9 +44,18 @@ class Tabbar extends React.Component {
 
   componentDidMount() {
     let selector = document.getElementById("selector");
-
     let activeItem = document.getElementsByName("focus")[0];
-    // var activeWidth = activeItem.offsetWidth;
+
+    // in caso di refresh
+    if (localStorage.getItem('paginaCorrente') !== null) {
+        let local = localStorage.getItem('paginaCorrente');
+
+        let item = document.querySelectorAll('[data-label="'+local+'"]')[0];
+        item.setAttribute("name", "focus");
+        // console.log(item);
+        // console.log(local)
+        return activeItem = item;
+    }
 
     selector.style.width = activeItem.clientHeight + "px";
     selector.style.height = activeItem.clientHeight + "px";
@@ -91,6 +99,7 @@ class Tabbar extends React.Component {
       let span = document.getElementById("span-index");
       span.style.display = "none";
     }
+
   }
 
   animateTabbar(e) {
@@ -102,8 +111,6 @@ class Tabbar extends React.Component {
     }
 
     let el = e.target;
-
-    // el.parentElement.setAttribute("name", "focus");
 
     setTimeout(function() {
       el.parentElement.setAttribute("name", "focus");
@@ -123,7 +130,6 @@ class Tabbar extends React.Component {
       selector.classList.remove("thinmoment");
     }, 600);
 
-    console.log();
     // let reset = e.target.parentNode.dataset.label;
     e.target.parentNode.firstChild.style.display = "none";
     this.setState({
@@ -132,7 +138,9 @@ class Tabbar extends React.Component {
         [e.target.parentNode.dataset.label]: 0
       }
     });
-    console.log(this.state);
+    // console.log(this.state);
+    localStorage.setItem('paginaCorrente', e.target.parentNode.dataset.label);
+
   }
 
   render() {
@@ -157,12 +165,11 @@ class Tabbar extends React.Component {
                   width="35px"
                   height="35px"
                 >
-                <path d="M36.85,65.34h-3.8c-.35,0-.7-.11-1-.14-1.54-.12-2.07-.67-2.08-2.21a6.65,6.65,0,0,0-1.09-3.7,6.75,6.75,0,0,0-10.38-1c-1.07,1-1.79,1.11-2.87.1-1.41-1.33-2.78-2.7-4.09-4.13-1.09-1.19-1-1.81.09-3A6.45,6.45,0,0,0,13,44a6.42,6.42,0,0,0-6-4.14c-1.44-.06-2.17-.72-2.21-2.14-.05-1.74,0-3.48,0-5.22S5,29.93,7.26,29.84a6.49,6.49,0,0,0,5.15-2.78,6.66,6.66,0,0,0-.8-8.68c-.95-1-1-1.74-.11-2.73q2.07-2.2,4.28-4.26c1.11-1,1.81-.93,2.93.09a6.78,6.78,0,0,0,6.43,1.73,6.64,6.64,0,0,0,5-6.5c0-1.26.57-2,1.78-2,2.07-.06,4.15-.07,6.22,0,1.32,0,1.85.73,1.84,2.05a6.71,6.71,0,0,0,11.48,4.87c1.06-1,1.78-1.11,2.86-.09C55.83,13,57.25,14.49,58.69,16a1.49,1.49,0,0,1,.35,1.7,3.35,3.35,0,0,1-.69.95,6.68,6.68,0,0,0,2.81,11.11,10.45,10.45,0,0,0,2.1.33,2,2,0,0,1,1.95,2c0,.33.09.66.14,1v3.8c-.06.49-.12,1-.19,1.46A1.73,1.73,0,0,1,63.25,40a8.06,8.06,0,0,0-1.48.12,6.7,6.7,0,0,0-3.48,11.4c.94,1,1,1.76.12,2.74-1.42,1.5-2.9,3-4.41,4.37a1.7,1.7,0,0,1-2.7-.11,7,7,0,0,0-4.75-2,6.64,6.64,0,0,0-6.79,6.61c0,1.46-.58,2-2,2.13A8.7,8.7,0,0,0,36.85,65.34Zm8.28-30.42a10.14,10.14,0,1,0-10,10.22A10.13,10.13,0,0,0,45.13,34.92Z"  transform="scale(0.8)" />           
+                  <path
+                    d="M36.85,65.34h-3.8c-.35,0-.7-.11-1-.14-1.54-.12-2.07-.67-2.08-2.21a6.65,6.65,0,0,0-1.09-3.7,6.75,6.75,0,0,0-10.38-1c-1.07,1-1.79,1.11-2.87.1-1.41-1.33-2.78-2.7-4.09-4.13-1.09-1.19-1-1.81.09-3A6.45,6.45,0,0,0,13,44a6.42,6.42,0,0,0-6-4.14c-1.44-.06-2.17-.72-2.21-2.14-.05-1.74,0-3.48,0-5.22S5,29.93,7.26,29.84a6.49,6.49,0,0,0,5.15-2.78,6.66,6.66,0,0,0-.8-8.68c-.95-1-1-1.74-.11-2.73q2.07-2.2,4.28-4.26c1.11-1,1.81-.93,2.93.09a6.78,6.78,0,0,0,6.43,1.73,6.64,6.64,0,0,0,5-6.5c0-1.26.57-2,1.78-2,2.07-.06,4.15-.07,6.22,0,1.32,0,1.85.73,1.84,2.05a6.71,6.71,0,0,0,11.48,4.87c1.06-1,1.78-1.11,2.86-.09C55.83,13,57.25,14.49,58.69,16a1.49,1.49,0,0,1,.35,1.7,3.35,3.35,0,0,1-.69.95,6.68,6.68,0,0,0,2.81,11.11,10.45,10.45,0,0,0,2.1.33,2,2,0,0,1,1.95,2c0,.33.09.66.14,1v3.8c-.06.49-.12,1-.19,1.46A1.73,1.73,0,0,1,63.25,40a8.06,8.06,0,0,0-1.48.12,6.7,6.7,0,0,0-3.48,11.4c.94,1,1,1.76.12,2.74-1.42,1.5-2.9,3-4.41,4.37a1.7,1.7,0,0,1-2.7-.11,7,7,0,0,0-4.75-2,6.64,6.64,0,0,0-6.79,6.61c0,1.46-.58,2-2,2.13A8.7,8.7,0,0,0,36.85,65.34Zm8.28-30.42a10.14,10.14,0,1,0-10,10.22A10.13,10.13,0,0,0,45.13,34.92Z"
+                    transform="scale(0.8)"
+                  />
                 </svg>
-
-
-
-
               </Link>
               <Link
                 to="/note"
@@ -172,6 +179,7 @@ class Tabbar extends React.Component {
               >
                 <span id="span-note" />
                 <svg
+                  transform="scale(0.8)"
                   id="1"
                   version="1.1"
                   x="0px"
@@ -219,7 +227,7 @@ class Tabbar extends React.Component {
                 href="home"
                 data-label="index"
               >
-              <span id="span-index" />
+                <span id="span-index" />
                 <svg
                   id="2"
                   x="0px"
