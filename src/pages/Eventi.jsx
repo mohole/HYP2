@@ -14,10 +14,11 @@ class Card extends React.Component {
     
     if (cards.classList.contains('open')) {
       cards.classList.remove('open');
+      cards.classList.add('aa');
     } else {
       // cards.parentNode.children.classList.remove("open");
       cards.classList.add("open");
-      
+      cards.classList.remove('aa');
     }
       console.log(cards)
     
