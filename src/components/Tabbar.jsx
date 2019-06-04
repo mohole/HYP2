@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // import icona1 from "../icone/clock.svg";
 
+
 function Orario() {
   return (
     <main className="container-rewards">

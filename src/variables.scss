@@ -102,7 +102,7 @@ input {
 // HEADER
 header {
   display: flex;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   @include gradient(set-attribute(web, angle), set-attribute(web, start), set-attribute(web, end));
@@ -120,10 +120,14 @@ header {
 section.home {
   padding-top: 10vh;
   overflow: hidden;
-  max-width: 500px;
-  transform: translateX(50vw);
+  // max-width: 500px;
   background-color: #fff;
-  // margin: 0 auto;
+  margin: 0 auto;
+}
+@media (min-width: 500px){
+  section.home {
+    max-width: 500px;
+  }
 }
 
 // prova
