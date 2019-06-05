@@ -18,7 +18,7 @@ function Orario() {
     </main>
   );
 }
-function Note() {
+function Materiali() {
   return (
     <main className="container-getback">
       <header />
@@ -36,7 +36,7 @@ class Tabbar extends React.Component {
       page: "/",
       notifiche: {
         rooms: 2,
-        note: 0,
+        materiali: 0,
         orario: 3,
         eventi: 0,
         index: 4
@@ -84,11 +84,11 @@ class Tabbar extends React.Component {
       let span = document.getElementById("span-rooms");
       span.style.display = "none";
     }
-    if (this.state.notifiche.note !== 0) {
-      let span = document.getElementById("span-note");
-      span.append(this.state.notifiche.note);
+    if (this.state.notifiche.materiali !== 0) {
+      let span = document.getElementById("span-materiali");
+      span.append(this.state.notifiche.materiali);
     } else {
-      let span = document.getElementById("span-note");
+      let span = document.getElementById("span-materiali");
       span.style.display = "none";
     }
     if (this.state.notifiche.orario !== 0) {
@@ -187,12 +187,12 @@ class Tabbar extends React.Component {
                 </svg>
               </Link>
               <Link
-                to="/note"
+                to="/materiali"
                 onClick={this.animateTabbar.bind(this)}
-                data-label="note"
+                data-label="materiali"
                 href="home"
               >
-                <span id="span-note" />
+                <span id="span-materiali" />
                 <svg
                   
                   id="1"
