@@ -1,5 +1,7 @@
 import React from "react";
 import "./Rooms.scss";
+import logoRoom from "./../icone/icona-aule.svg";
+import arrow from "./../icone/arrow.svg";
 import axios from 'axios';
 
 class Form extends React.Component{
@@ -88,7 +90,7 @@ class ListItem extends React.Component{
             return(
                 <li className="formOpen">
                     <div className="title">
-                    <span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <a href="#" onClick={this.closeForm} >X</a>
+                    <span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <span href="#" onClick={this.closeForm} >X</span>
                     </div>   
                     <Form sendMail={this.props.sendMail} classroomid={this.props.keyValue} />
                 
@@ -333,7 +335,7 @@ class Rooms extends React.Component{
                     <section className="container-room">
                         <section className="list-rooms">
                             <section className="headerImg">
-                                <p></p>
+                                <img src={logoRoom} alt="room"/>
                             </section>
                             <p className="subTitle"> <b>AULE</b> </p>
                             <p className={`${show} ${typeMsg}`} >{this.state.message}</p>
@@ -343,7 +345,7 @@ class Rooms extends React.Component{
                                 }
                             
                             </ul>
-                            <section className="scroll"><p>scrolla</p></section>
+                            <section className="scroll"><img src={arrow} alt="scrolla"/></section>
                         </section>
                     </section>
                 </>

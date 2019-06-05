@@ -1,12 +1,13 @@
 import React from "react";
 import "./Home.scss";
+import arrow from "./../icone/arrow.svg";
 import axios from 'axios';
 class SummaryStudents extends React.Component{
     render(){
         return(
             <section className="summary">
                 <img src="#" alt="img_students" width="120" height="120"/>
-                <p>Nome Studente</p>
+                <p>{this.props.studentData.username}</p>
                 <p>Corso Studente</p>
                 <section className="summary-lessons">
                     <div className="first-box">
@@ -63,7 +64,7 @@ class SummaryLesson extends React.Component{
                 <p>Zinetti</p>
                 <p>Armando</p>
                 <p>14:30 - 18:00</p>
-                <p className="scrolla">scrolla</p>
+                <p className="scrolla"> <img src={arrow} alt="scrolla"/></p>
             </section>
         );
     }
@@ -73,26 +74,66 @@ class SummaryLesson extends React.Component{
 class Home extends React.Component{
     constructor(props){
         super(props);
+        this.state=({
+            loading:true
+        });
+        let token;
+        setTimeout(() => {
+            if(localStorage.getItem('user')){
+                token=JSON.parse(localStorage.getItem('user')).token;
+            }
+       
+            Promise.all([
+                axios
+                .get(`http://node.mohole.it:1337/users/${JSON.parse(localStorage.getItem('user')).id}`, {
+                  headers: {
+                    Authorization: `Bearer ${token}`
+                  }
+                })
+                .then(response =>response.data),
+              ]).then(([studentCorrent]) => {
+                this.setState({
+                    student:studentCorrent,
+                    loading: false
+                 
+                });
+                
+
+               
+              });
+            
       
         
+        }, 1);
+        
     }
+   
     
     render(){
-        return(
-            <>
-                <header>
-                    <h2>Home</h2>
-                </header>
-                <main className="container-home">
-                    <section className="real-container">
-                        <SummaryStudents />
-                        <SummaryRewards />
-                        <SummaryLesson />
-                    </section>
-                        
-                </main>
-            </>
-        );
+        if(this.state.loading){
+            return(
+                <>
+                    <p>in caricamento</p>
+                </>
+            )
+        }else{
+            return(
+                <>
+                    <header>
+                        <h2>Home</h2>
+                    </header>
+                    <main className="container-home">
+                        <section className="real-container">
+                            <SummaryStudents studentData={this.state.student} />
+                            <SummaryRewards />
+                            <SummaryLesson />
+                        </section>
+                            
+                    </main>
+                </>
+            );
+        }
+        
             
     }
 }

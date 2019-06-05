@@ -50,6 +50,13 @@
 }
 .headerImg{
     height: 80px;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+    @include gradient(0deg, set-attribute(acting, start), set-attribute(acting, end));
+    img{
+        height: 100%;
+    }
 }
 .scroll{
     width: 100%;
@@ -58,6 +65,9 @@
     bottom: 0;
     background-color: #fff;
     text-align: center;
+    img{
+        height: 25px;
+    }
 }
 .free,.noFree{
     position: absolute;

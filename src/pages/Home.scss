@@ -88,9 +88,10 @@
             height: 90px;
             border-radius: 5px;
             margin: 4%;
-           background-color: red;
+            @include gradient(45deg, set-attribute(filmaking, start), set-attribute(filmaking, end));
             flex: 0 0 auto;
         }
+        
     }
     .percentage{
         position: absolute;
@@ -111,6 +112,9 @@
         }
         .scrolla{
             text-align: center;
+            img{
+                height: 15px;
+            }
         }
     }
 }
