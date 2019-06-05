@@ -14,10 +14,11 @@ class Card extends React.Component {
     
     if (cards.classList.contains('open')) {
       cards.classList.remove('open');
+      cards.classList.add('aa');
     } else {
       // cards.parentNode.children.classList.remove("open");
       cards.classList.add("open");
-      
+      cards.classList.remove('aa');
     }
       console.log(cards)
     
@@ -130,7 +131,7 @@ class Eventi extends React.Component {
     });
     return (
       <div className="content" onScroll={this.scrollCards.bind(this)}>
-        {this.state.loading ? "in caricamento" : ""}
+        {this.state.loading ? <p>Caricamento</p> : ""}
         <header />
         <div id="group-card-eventi">{cards}</div>
       </div>

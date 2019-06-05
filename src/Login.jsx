@@ -18,7 +18,8 @@ class Login extends React.Component {
        first:true
      }
    }
-   localStorage.setItem('paginaCorrente', 'index');
+   if (this.state.user.email.first === true) 
+     localStorage.setItem('paginaCorrente', 'index');
  }
  randomBG(){
   let widthForm=document.querySelector("form").offsetWidth;
