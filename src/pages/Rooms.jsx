@@ -48,7 +48,7 @@ class ListItem extends React.Component{
         
     }
     check(){
-        this.props.reservation.map((reserv)=>{
+        this.props.reservation.forEach((reserv)=>{
             if(reserv.room!==null){
                 if(reserv.room.id===this.props.keyValue){
                     this.setState({
@@ -194,7 +194,6 @@ class Rooms extends React.Component{
     
     let roomId= e.currentTarget.parentNode.getAttribute("classroom");
     let token;
-    let checkRoom=true;
     setTimeout(() => {
       
         if(document.querySelector("#start").value &&
@@ -224,7 +223,9 @@ class Rooms extends React.Component{
                     }
                     })
                     .then(response=> {
-                        response.data.map((valore)=>{
+                        /* const checkRoom = !response.data.find(valore => valore.room.id!==null && parseInt(valore.room.id)===parseInt(roomId)); */
+                        let checkRoom=true;
+                        response.data.forEach((valore)=>{
                             if(valore.room.id!==null){
                                 if(parseInt(valore.room.id)===parseInt(roomId)){
                                   checkRoom=false;
@@ -254,12 +255,13 @@ class Rooms extends React.Component{
                                   }); */
                                 this.setState({
                                     error:false,
-                                    message:"Prenotazione inviata. Riceverai una conferma via e-mail"
+                                    message:"Prenotazione inviata. Riceverai una conferma via e-mail",
+                                    loading:true
                                 });
                                 this.setAll();
-                            
+                               
 
-                                window.location.reload()
+                                /* window.location.reload() */
                             }).catch((error) => {
                                 this.setState({
                                     error:true,

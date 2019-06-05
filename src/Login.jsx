@@ -207,7 +207,7 @@ loginSee(){
               <input id="remember" type="checkbox"/><label htmlFor="remember">Ricordami</label>
             </span>
             <input onClick={this.handleClick} type="submit" value="Login"/>
-            <a onClick={this.forgotPass} href="#">Password dimenticata?</a>
+            <a onClick={this.forgotPass} role="button">Password dimenticata?</a>
           </div>
         </form>
 
