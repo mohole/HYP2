@@ -86,12 +86,7 @@ class Login extends React.Component {
       }      
     }else if(this.state.user.name===""){
       this.randomBG();
-    }
-     
-  
-  
- 
-    
+    }   
 }
 
 
