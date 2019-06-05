@@ -2,6 +2,7 @@ import React from "react";
 import "./Tabbar.scss";
 import Eventi from "./../pages/Eventi";
 import Rooms from "./../pages/Rooms";
+import Materials from "./../pages/Materials";
 import Home from "./../pages/Home";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -267,6 +268,7 @@ class Tabbar extends React.Component {
             <Route path="/orario" component={Orario} />
             <Route path="/note" component={Note} />
             <Route path="/rooms" component={Rooms} />
+            <Route path="/materials" component={Materials} />
             <Route path="/eventi" component={Eventi} />
           </section>
         </Router>
