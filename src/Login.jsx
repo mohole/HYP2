@@ -109,7 +109,7 @@ handleClick(event){
     // Controllo i dati d'accesso dello studente
     let check=document.querySelector("#remember").checked;
     axios
-    .post('http://node.mohole.it:1337/auth/local', {
+    .post('https://node.mohole.it/auth/local', {
         identifier: document.querySelector("input[type='text']").value,
         password: document.querySelector("input[type='password']").value
     })
@@ -157,9 +157,9 @@ forgotPass(e){
   }else{
    
       axios
-      .post('http://node.mohole.it:1337/auth/forgot-password', {
+      .post('https://node.mohole.it/auth/forgot-password', {
         email: document.querySelector("input[type=text]").value,
-        url: 'http:/node.mohole.it:1337/admin/plugins/users-permissions/auth/reset-password'
+        url: 'https://node.mohole.it/admin/plugins/users-permissions/auth/reset-password'
       })
       .then(response => {
         if(document.querySelector(".error")){

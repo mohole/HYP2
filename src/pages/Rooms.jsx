@@ -134,14 +134,14 @@ class Rooms extends React.Component{
        
             Promise.all([
                 axios
-                .get('http://node.mohole.it:1337/rooms', {
+                .get('https://node.mohole.it/rooms', {
                   headers: {
                     Authorization: `Bearer ${token}`
                   }
                 })
                 .then(response =>response.data),
                 axios
-                .get('http://node.mohole.it:1337/reservationrooms', {
+                .get('https://node.mohole.it/reservationrooms', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -219,7 +219,7 @@ class Rooms extends React.Component{
                     var config = {
                         headers: {'Authorization': "bearer " + token}
                     };
-                    axios.get('http://node.mohole.it:1337/reservationrooms', {
+                    axios.get('https://node.mohole.it/reservationrooms', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -243,7 +243,7 @@ class Rooms extends React.Component{
                                 conferma: "inattesa"
                             }
                             axios.post( 
-                            'http://node.mohole.it:1337/reservationrooms',
+                            'https://node.mohole.it/reservationrooms',
                             bodyParameters,
                             config
                             ).then((response) => {

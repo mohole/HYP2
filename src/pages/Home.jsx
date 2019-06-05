@@ -85,7 +85,7 @@ class Home extends React.Component{
        
             Promise.all([
                 axios
-                .get(`http://node.mohole.it:1337/users/${JSON.parse(localStorage.getItem('user')).id}`, {
+                .get(`https://node.mohole.it/users/${JSON.parse(localStorage.getItem('user')).id}`, {
                   headers: {
                     Authorization: `Bearer ${token}`
                   }
