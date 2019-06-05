@@ -158,7 +158,7 @@ forgotPass(e){
    
       axios
       .post('https://node.mohole.it/auth/forgot-password', {  
-        email: 'lomba.nicolo@gmail.com',
+        email: document.querySelector("input[type=text]").value,
         url: 'https://node.mohole.it/admin/plugins/users-permissions/auth/reset-password'
       })
       .then(response => {
