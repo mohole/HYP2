@@ -187,9 +187,9 @@ class Tabbar extends React.Component {
                 </svg>
               </Link>
               <Link
-                to="/note"
+                to="/materiali"
                 onClick={this.animateTabbar.bind(this)}
-                data-label="note"
+                data-label="materiali"
                 href="home"
               >
                 <span id="span-note" />
@@ -266,9 +266,8 @@ class Tabbar extends React.Component {
 
             <Route path="/" exact component={Home} />
             <Route path="/orario" component={Orario} />
-            <Route path="/note" component={Note} />
-            <Route path="/rooms" component={Rooms} />
             <Route path="/materiali" component={Materials} />
+            <Route path="/rooms" component={Rooms} />
             <Route path="/eventi" component={Eventi} />
           </section>
         </Router>
