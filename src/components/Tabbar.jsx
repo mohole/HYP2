@@ -2,7 +2,6 @@ import React from "react";
 import "./Tabbar.scss";
 import Eventi from "./../pages/Eventi";
 import Rooms from "./../pages/Rooms";
-import Materials from "./../pages/Materials";
 import Home from "./../pages/Home";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -187,9 +186,9 @@ class Tabbar extends React.Component {
                 </svg>
               </Link>
               <Link
-                to="/materiali"
+                to="/note"
                 onClick={this.animateTabbar.bind(this)}
-                data-label="materiali"
+                data-label="note"
                 href="home"
               >
                 <span id="span-note" />
@@ -266,7 +265,7 @@ class Tabbar extends React.Component {
 
             <Route path="/" exact component={Home} />
             <Route path="/orario" component={Orario} />
-            <Route path="/materiali" component={Materials} />
+            <Route path="/note" component={Note} />
             <Route path="/rooms" component={Rooms} />
             <Route path="/eventi" component={Eventi} />
           </section>
