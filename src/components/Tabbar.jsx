@@ -268,7 +268,7 @@ class Tabbar extends React.Component {
             <Route path="/orario" component={Orario} />
             <Route path="/note" component={Note} />
             <Route path="/rooms" component={Rooms} />
-            <Route path="/materials" component={Materials} />
+            <Route path="/materiali" component={Materials} />
             <Route path="/eventi" component={Eventi} />
           </section>
         </Router>
