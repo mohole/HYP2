@@ -109,7 +109,7 @@
 }
 
 //// NOTIFICHE
-#span-orario, #span-note, #span-eventi, #span-rooms, #span-index {
+span[id*='span'] {
     position: absolute;
     top: 5px;
     right: 5px;
