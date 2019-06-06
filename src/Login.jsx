@@ -155,9 +155,9 @@ forgotPass(e){
     document.querySelector(".info").appendChild(p); 
 
   }else{
-      console.log("boh")
+   
       axios
-      .post('https://node.mohole.it', {  
+      .post('https://node.mohole.it/auth/forgot-password', {  
         email: document.querySelector("input[type=text]").value,
         url: 'https://node.mohole.it/admin/plugins/users-permissions/auth/reset-password'
       })
