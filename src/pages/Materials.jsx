@@ -1,6 +1,8 @@
 import React from "react";
 import "./Rooms.scss";
 import axios from 'axios';
+import Header from './../components/Header';
+
 
 class Form extends React.Component{
   
@@ -305,9 +307,9 @@ class Materials extends React.Component{
         if(this.state.loading===true){
             return(
                 <>
-                    <header>
-                        <h2>LAP TOP</h2>
-                    </header>
+                    <Header titoloPagina = "Get Back">
+                        
+                    </Header>
                     <section className="container-room">
                         <p>Caricamento</p>
                     </section>
@@ -316,9 +318,9 @@ class Materials extends React.Component{
         }else{
             return(
                 <>
-                    <header>
-                        <h2>MATERIALI</h2>
-                    </header>
+                    <Header titoloPagina= "Get Back">
+                        
+                    </Header>
                     <section className="container-room">
                         <section className="list-rooms">
                             <section className="headerImg">
