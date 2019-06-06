@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./../components/Header";
 import "./Eventi.scss";
 
 import img_sostitutiva from "./../icone/mohole.jpg";
@@ -132,7 +133,7 @@ class Eventi extends React.Component {
     return (
       <div className="content" onScroll={this.scrollCards.bind(this)}>
         {this.state.loading ? <p>Caricamento</p> : ""}
-        <header />
+        <Header  titoloPagina='Eventi'/>
         <div id="group-card-eventi">{cards}</div>
       </div>
     );

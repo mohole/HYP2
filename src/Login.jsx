@@ -147,7 +147,6 @@ forgotPass(e){
  
   
   let p;
-  e.preventDefault();
   if(!document.querySelector("input[type=text]").value && !document.querySelector(".error")){
     p=document.createElement("p");
     p.setAttribute('class','error');
@@ -157,7 +156,7 @@ forgotPass(e){
   }else{
    
       axios
-      .post('https://node.mohole.it/forgot-password', {  
+      .post('https://node.mohole.it/auth/forgot-password', {  
         email: document.querySelector("input[type=text]").value,
         url: 'https://node.mohole.it/admin/plugins/users-permissions/auth/reset-password'
       })

@@ -18,7 +18,7 @@ function Orario() {
     </main>
   );
 }
-
+ 
 class Tabbar extends React.Component {
   constructor() {
     super();
@@ -28,7 +28,7 @@ class Tabbar extends React.Component {
       page: "/",
       notifiche: {
         rooms: 2,
-        materiali: 0,
+        note: 0,
         orario: 3,
         eventi: 0,
         index: 4
@@ -76,11 +76,11 @@ class Tabbar extends React.Component {
       let span = document.getElementById("span-rooms");
       span.style.display = "none";
     }
-    if (this.state.notifiche.materiali !== 0) {
-      let span = document.getElementById("span-materiali");
-      span.append(this.state.notifiche.materiali);
+    if (this.state.notifiche.note !== 0) {
+      let span = document.getElementById("span-note");
+      span.append(this.state.notifiche.note);
     } else {
-      let span = document.getElementById("span-materiali");
+      let span = document.getElementById("span-note");
       span.style.display = "none";
     }
     if (this.state.notifiche.orario !== 0) {
@@ -179,12 +179,12 @@ class Tabbar extends React.Component {
                 </svg>
               </Link>
               <Link
-                to="/materiali"
+                to="/materials"
                 onClick={this.animateTabbar.bind(this)}
-                data-label="materiali"
+                data-label="note"
                 href="home"
               >
-                <span id="span-materiali" />
+                <span id="span-note" />
                 <svg
                   
                   id="1"
@@ -258,8 +258,9 @@ class Tabbar extends React.Component {
 
             <Route path="/" exact component={Home} />
             <Route path="/orario" component={Orario} />
-            <Route path="/materiali" component={Materials} />
+            <Route path="/materials" component={Materials} />
             <Route path="/rooms" component={Rooms} />
+            <Route path="/materials" component={Materials} />
             <Route path="/eventi" component={Eventi} />
           </section>
         </Router>
