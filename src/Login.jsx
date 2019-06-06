@@ -147,7 +147,6 @@ forgotPass(e){
  
   
   let p;
-  e.preventDefault();
   if(!document.querySelector("input[type=text]").value && !document.querySelector(".error")){
     p=document.createElement("p");
     p.setAttribute('class','error');
