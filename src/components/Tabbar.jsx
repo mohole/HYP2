@@ -18,14 +18,6 @@ function Orario() {
     </main>
   );
 }
-function Materiali() {
-  return (
-    <main className="container-getback">
-      <header />
-      <h2> Get back</h2>
-    </main>
-  );
-}
 
 class Tabbar extends React.Component {
   constructor() {
