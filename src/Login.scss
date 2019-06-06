@@ -100,6 +100,11 @@
    color: rgba(0, 0, 0, 0.2);
 }
 /* background bars and circle */
+.container-login .link{
+    position: relative;
+    border-radius: 0;
+    text-decoration: underline;
+}
 .container-login span{
     position: absolute;
     border-radius: 50%;

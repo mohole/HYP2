@@ -1,5 +1,7 @@
 import React from "react";
 import "./Rooms.scss";
+import logoRoom from "./../icone/icona-aule.svg";
+import arrow from "./../icone/arrow.svg";
 import axios from 'axios';
 
 class Form extends React.Component{
@@ -48,7 +50,7 @@ class ListItem extends React.Component{
         
     }
     check(){
-        this.props.reservation.map((reserv)=>{
+        this.props.reservation.forEach((reserv)=>{
             if(reserv.room!==null){
                 if(reserv.room.id===this.props.keyValue){
                     this.setState({
@@ -88,7 +90,7 @@ class ListItem extends React.Component{
             return(
                 <li className="formOpen">
                     <div className="title">
-                    <span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <a href="#" onClick={this.closeForm} >X</a>
+                    <span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <span href="#" onClick={this.closeForm} >X</span>
                     </div>   
                     <Form sendMail={this.props.sendMail} classroomid={this.props.keyValue} />
                 
@@ -132,14 +134,14 @@ class Rooms extends React.Component{
        
             Promise.all([
                 axios
-                .get('http://node.mohole.it:1337/rooms', {
+                .get('https://node.mohole.it/rooms', {
                   headers: {
                     Authorization: `Bearer ${token}`
                   }
                 })
                 .then(response =>response.data),
                 axios
-                .get('http://node.mohole.it:1337/reservationrooms', {
+                .get('https://node.mohole.it/reservationrooms', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -194,7 +196,6 @@ class Rooms extends React.Component{
     
     let roomId= e.currentTarget.parentNode.getAttribute("classroom");
     let token;
-    let checkRoom=true;
     setTimeout(() => {
       
         if(document.querySelector("#start").value &&
@@ -218,13 +219,15 @@ class Rooms extends React.Component{
                     var config = {
                         headers: {'Authorization': "bearer " + token}
                     };
-                    axios.get('http://node.mohole.it:1337/reservationrooms', {
+                    axios.get('https://node.mohole.it/reservationrooms', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                     })
                     .then(response=> {
-                        response.data.map((valore)=>{
+                        /* const checkRoom = !response.data.find(valore => valore.room.id!==null && parseInt(valore.room.id)===parseInt(roomId)); */
+                        let checkRoom=true;
+                        response.data.forEach((valore)=>{
                             if(valore.room.id!==null){
                                 if(parseInt(valore.room.id)===parseInt(roomId)){
                                   checkRoom=false;
@@ -240,7 +243,7 @@ class Rooms extends React.Component{
                                 conferma: "inattesa"
                             }
                             axios.post( 
-                            'http://node.mohole.it:1337/reservationrooms',
+                            'https://node.mohole.it/reservationrooms',
                             bodyParameters,
                             config
                             ).then((response) => {
@@ -254,12 +257,13 @@ class Rooms extends React.Component{
                                   }); */
                                 this.setState({
                                     error:false,
-                                    message:"Prenotazione inviata. Riceverai una conferma via e-mail"
+                                    message:"Prenotazione inviata. Riceverai una conferma via e-mail",
+                                    loading:true
                                 });
                                 this.setAll();
-                            
+                               
 
-                                window.location.reload()
+                                /* window.location.reload() */
                             }).catch((error) => {
                                 this.setState({
                                     error:true,
@@ -331,7 +335,7 @@ class Rooms extends React.Component{
                     <section className="container-room">
                         <section className="list-rooms">
                             <section className="headerImg">
-                                <p></p>
+                                <img src={logoRoom} alt="room"/>
                             </section>
                             <p className="subTitle"> <b>AULE</b> </p>
                             <p className={`${show} ${typeMsg}`} >{this.state.message}</p>
@@ -341,7 +345,7 @@ class Rooms extends React.Component{
                                 }
                             
                             </ul>
-                            <section className="scroll"><p>scrolla</p></section>
+                            <section className="scroll"><img src={arrow} alt="scrolla"/></section>
                         </section>
                     </section>
                 </>

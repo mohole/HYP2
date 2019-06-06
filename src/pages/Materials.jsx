@@ -17,7 +17,7 @@ class Form extends React.Component{
         
         
                 </>
-            );
+            ); 
         
         
 
@@ -317,7 +317,7 @@ class Materials extends React.Component{
             return(
                 <>
                     <header>
-                        <h2>MATERIALI</h2>
+                        <h2>MATERIAL</h2>
                     </header>
                     <section className="container-room">
                         <section className="list-rooms">

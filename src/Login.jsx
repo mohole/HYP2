@@ -86,12 +86,7 @@ class Login extends React.Component {
       }      
     }else if(this.state.user.name===""){
       this.randomBG();
-    }
-     
-  
-  
- 
-    
+    }   
 }
 
 
@@ -114,7 +109,7 @@ handleClick(event){
     // Controllo i dati d'accesso dello studente
     let check=document.querySelector("#remember").checked;
     axios
-    .post('http://node.mohole.it:1337/auth/local', {
+    .post('https://node.mohole.it/auth/local', {
         identifier: document.querySelector("input[type='text']").value,
         password: document.querySelector("input[type='password']").value
     })
@@ -152,7 +147,6 @@ forgotPass(e){
  
   
   let p;
-  e.preventDefault();
   if(!document.querySelector("input[type=text]").value && !document.querySelector(".error")){
     p=document.createElement("p");
     p.setAttribute('class','error');
@@ -162,9 +156,9 @@ forgotPass(e){
   }else{
    
       axios
-      .post('http://node.mohole.it:1337/auth/forgot-password', {
+      .post('https://node.mohole.it/auth/forgot-password', {  
         email: document.querySelector("input[type=text]").value,
-        url: 'http:/node.mohole.it:1337/admin/plugins/users-permissions/auth/reset-password'
+        url: 'https://node.mohole.it/admin/plugins/users-permissions/auth/reset-password'
       })
       .then(response => {
         if(document.querySelector(".error")){
@@ -208,7 +202,7 @@ loginSee(){
               <input id="remember" type="checkbox"/><label htmlFor="remember">Ricordami</label>
             </span>
             <input onClick={this.handleClick} type="submit" value="Login"/>
-            <a onClick={this.forgotPass} href="#">Password dimenticata?</a>
+            <span className="link" onClick={this.forgotPass} role="button">Password dimenticata?</span>
           </div>
         </form>
 
