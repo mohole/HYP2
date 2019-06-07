@@ -255,6 +255,8 @@ class Rooms extends React.Component{
                                     subject: 'Use strapi email provider successfully',
                                     text: 'Hello world!',
                                     html: 'Hello world!'
+                                  }),cathc((errors)=>{
+                                      console.log(errors);
                                   });
                                 this.setState({
                                     error:false,
