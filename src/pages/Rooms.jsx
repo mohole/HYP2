@@ -251,7 +251,7 @@ class Rooms extends React.Component{
                                     await strapi.plugins['email'].services.email.send({
                                     to:JSON.parse(localStorage.getItem("user")).email, 
                                     from: 'lomba.nicolo@gmail.com',
-                                    replyTo: 'no-reply@strapi.io',
+                                    replyTo: 'lomba.nicolo@gmail.com',
                                     subject: 'Use strapi email provider successfully',
                                     text: 'Hello world!',
                                     html: 'Hello world!'
