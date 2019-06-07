@@ -2,31 +2,13 @@ import React from "react";
 import "./Tabbar.scss";
 import Eventi from "./../pages/Eventi";
 import Rooms from "./../pages/Rooms";
-import Materials from "./../pages/Materials";
 import Home from "./../pages/Home";
+import Materials from "./../pages/Materials";
+import Rewards from "./../pages/Rewards";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-// import icona1 from "../icone/clock.svg";
-
-
-function Orario() {
-  return (
-    <main className="container-rewards">
-      <header />
-      <h2>Feedback e rewards</h2>
-    </main>
-  );
-}
-function Note() {
-  return (
-    <main className="container-getback">
-      <header />
-      <h2> Get back</h2>
-    </main>
-  );
-}
-
+ 
 class Tabbar extends React.Component {
   constructor() {
     super();
@@ -36,8 +18,8 @@ class Tabbar extends React.Component {
       page: "/",
       notifiche: {
         rooms: 2,
-        note: 0,
-        orario: 3,
+        materials: 0,
+        rewards: 3,
         eventi: 0,
         index: 4
       }
@@ -84,18 +66,18 @@ class Tabbar extends React.Component {
       let span = document.getElementById("span-rooms");
       span.style.display = "none";
     }
-    if (this.state.notifiche.note !== 0) {
-      let span = document.getElementById("span-note");
-      span.append(this.state.notifiche.note);
+    if (this.state.notifiche.materials !== 0) {
+      let span = document.getElementById("span-materials");
+      span.append(this.state.notifiche.materials);
     } else {
-      let span = document.getElementById("span-note");
+      let span = document.getElementById("span-materials");
       span.style.display = "none";
     }
-    if (this.state.notifiche.orario !== 0) {
-      let span = document.getElementById("span-orario");
-      span.append(this.state.notifiche.orario);
+    if (this.state.notifiche.rewards !== 0) {
+      let span = document.getElementById("span-rewards");
+      span.append(this.state.notifiche.rewards);
     } else {
-      let span = document.getElementById("span-orario");
+      let span = document.getElementById("span-rewards");
       span.style.display = "none";
     }
     if (this.state.notifiche.eventi !== 0) {
@@ -169,12 +151,12 @@ class Tabbar extends React.Component {
             <nav id="tabbar" className="tabs tabbar">
               <div id="selector" />
               <Link
-                to="/orario"
+                to="/rewards"
                 onClick={this.animateTabbar.bind(this)}
                 href="home"
-                data-label="orario"
+                data-label="rewards"
               >
-                <span id="span-orario" />
+                <span id="span-rewards" />
                 <svg
                   id="0"
                   x="0px"
@@ -187,12 +169,12 @@ class Tabbar extends React.Component {
                 </svg>
               </Link>
               <Link
-                to="/note"
+                to="/materials"
                 onClick={this.animateTabbar.bind(this)}
-                data-label="note"
+                data-label="materials"
                 href="home"
               >
-                <span id="span-note" />
+                <span id="span-materials" />
                 <svg
                   
                   id="1"
@@ -265,10 +247,9 @@ class Tabbar extends React.Component {
             </nav>
 
             <Route path="/" exact component={Home} />
-            <Route path="/orario" component={Orario} />
-            <Route path="/note" component={Note} />
-            <Route path="/rooms" component={Rooms} />
+            <Route path="/rewards" component={Rewards} />
             <Route path="/materials" component={Materials} />
+            <Route path="/rooms" component={Rooms} />
             <Route path="/eventi" component={Eventi} />
           </section>
         </Router>

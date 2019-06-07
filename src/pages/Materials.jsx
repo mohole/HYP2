@@ -1,6 +1,8 @@
 import React from "react";
 import "./Rooms.scss";
 import axios from 'axios';
+import Header from './../components/Header';
+
 
 class Form extends React.Component{
   
@@ -124,14 +126,14 @@ class Materials extends React.Component{
        
             Promise.all([
                 axios
-                .get('http://node.mohole.it:1337/materials', {
+                .get('https://node.mohole.it/materials', {
                   headers: {
                     Authorization: `Bearer ${token}`
                   }
                 })
                 .then(response =>response.data),
                 axios
-                .get('http://node.mohole.it:1337/reservationmats', {
+                .get('https://node.mohole.it/reservationmats', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -209,7 +211,7 @@ class Materials extends React.Component{
                     var config = {
                         headers: {'Authorization': "bearer " + token}
                     };
-                    axios.get('http://node.mohole.it:1337/reservationmats', {
+                    axios.get('https://node.mohole.it/reservationmats', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -231,7 +233,7 @@ class Materials extends React.Component{
                                 conferma: "inattesa"
                             }
                             axios.post( 
-                            'http://node.mohole.it:1337/reservationmats',
+                            'https://node.mohole.it/reservationmats',
                             bodyParameters,
                             config
                             ).then((response) => {
@@ -305,9 +307,9 @@ class Materials extends React.Component{
         if(this.state.loading===true){
             return(
                 <>
-                    <header>
-                        <h2>LAP TOP</h2>
-                    </header>
+                    <Header titoloPagina = "Get Back">
+                        
+                    </Header>
                     <section className="container-room">
                         <p>Caricamento</p>
                     </section>
@@ -316,9 +318,9 @@ class Materials extends React.Component{
         }else{
             return(
                 <>
-                    <header>
-                        <h2>MATERIAL</h2>
-                    </header>
+                    <Header titoloPagina= "Get Back">
+                        
+                    </Header>
                     <section className="container-room">
                         <section className="list-rooms">
                             <section className="headerImg">

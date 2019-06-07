@@ -1,0 +1,35 @@
+@import './../variables.scss';
+
+
+header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include gradient(set-attribute(web, angle), set-attribute(web, start), set-attribute(web, end));
+    width: 100%;
+
+    height: 8vh;
+    padding: 2vh;
+    z-index: 2;
+    transform: rotate(-3deg) translateY(-3vh) translateX(-20px);
+
+    h1 {
+        position: absolute;
+        bottom: -22px;
+        right: 75px;
+        // transform: rotate(3deg);
+        vertical-align: middle;
+        color: black;
+        font-size: 1.2em;
+
+    }
+
+    img{
+        height: 25px;
+        width: auto;
+        margin-left: 2em;
+        margin-top: 1.5em;
+        transform: rotate(3deg);
+    }
+}

@@ -2,6 +2,8 @@ import React from "react";
 import "./Home.scss";
 import arrow from "./../icone/arrow.svg";
 import axios from 'axios';
+import Header from "./../components/Header";
+
 class SummaryStudents extends React.Component{
     render(){
         return(
@@ -113,15 +115,14 @@ class Home extends React.Component{
         if(this.state.loading){
             return(
                 <>
+                <Header titoloPagina='Home'/>
                     <p>in caricamento</p>
                 </>
             )
         }else{
             return(
                 <>
-                    <header>
-                        <h2>Home</h2>
-                    </header>
+                <Header titoloPagina='Home'/>
                     <main className="container-home">
                         <section className="real-container">
                             <SummaryStudents studentData={this.state.student} />

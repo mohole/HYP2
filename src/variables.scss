@@ -98,28 +98,8 @@ input {
   border-radius: 5px;
 }
 
-
-
-// HEADER
-header {
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  @include gradient(set-attribute(web, angle), set-attribute(web, start), set-attribute(web, end));
-  width: 100%;
-  height: 6vh;
-  padding: 2vh;
-  z-index: 2;
-
-  h2 {
-    vertical-align: middle;
-    color: white
-  }
-}
-
 section.home {
-  padding-top: 10vh;
+  padding-top: 12vh;
   overflow: hidden;
   // max-width: 500px;
   background-color: #fff;
