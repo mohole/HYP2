@@ -248,15 +248,13 @@ class Rooms extends React.Component{
                             bodyParameters,
                             config
                             ).then((response) => {
-                                    await strapi.plugins['email'].services.email.send({
+                                    await strapi.pluins['email'].services.email.send({
                                     to:JSON.parse(localStorage.getItem("user")).email, 
                                     from: 'lomba.nicolo@gmail.com',
                                     replyTo: 'lomba.nicolo@gmail.com',
                                     subject: 'Use strapi email provider successfully',
                                     text: 'Hello world!',
                                     html: 'Hello world!'
-                                  }),cathc((errors)=>{
-                                      console.log(errors);
                                   });
                                 this.setState({
                                     error:false,
