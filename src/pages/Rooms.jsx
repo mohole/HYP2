@@ -247,14 +247,14 @@ class Rooms extends React.Component{
                             bodyParameters,
                             config
                             ).then((response) => {
-                                /* await strapi.plugins['email'].services.email.send({
+                                    await strapi.plugins['email'].services.email.send({
                                     to:JSON.parse(localStorage.getItem("user")).email, 
                                     from: 'lomba.nicolo@gmail.com',
                                     replyTo: 'no-reply@strapi.io',
                                     subject: 'Use strapi email provider successfully',
                                     text: 'Hello world!',
                                     html: 'Hello world!'
-                                  }); */
+                                  });
                                 this.setState({
                                     error:false,
                                     message:"Prenotazione inviata. Riceverai una conferma via e-mail",
