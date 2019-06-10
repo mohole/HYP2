@@ -3,7 +3,6 @@ import "./Rooms.scss";
 import logoRoom from "./../icone/icona-aule.svg";
 import arrow from "./../icone/arrow.svg";
 import axios from 'axios';
-import Header from "./../components/Header";
 
 class Form extends React.Component{
   
@@ -14,11 +13,13 @@ class Form extends React.Component{
                     <h2>Prenotazione</h2>
                     <section className="start-box">
                         <label htmlFor="start">Inizio</label>
-                        <input id="start" type="datetime-local" name="startdate" required></input>
+                        <input type="time" id="start" name="startdate" min="9:00" max="18:00" required></input>
+                        
                     </section>
                     <section className="end-box">
                         <label htmlFor="end">Fine</label>
-                        <input id="end" type="datetime-local" name="enddate" required></input>
+                        <input type="time" id="end" name="enddate" min="9:00" max="18:00" required></input>
+                  
                     </section>
                     <label className="titleNote" htmlFor="note">Motivo</label>
                     <textarea name="note" id="note" cols="30" rows="5" required></textarea>
@@ -63,7 +64,8 @@ class ListItem extends React.Component{
 
      }
     openForm(e){
-        document.querySelector("ul").scrollTo(0, Math.abs( e.currentTarget.offsetTop-115));      
+
+        document.querySelector("ul").scrollTo(0, Math.abs( e.currentTarget.offsetTop-160));          
         this.setState({
             clicked:true
         });
@@ -193,7 +195,7 @@ class Rooms extends React.Component{
         return arr;
     }
     sendEmail(e){
-    e.preventDefault(); 
+    e.preventDefault() ; 
     
     let roomId= e.currentTarget.parentNode.getAttribute("classroom");
     let token;
@@ -204,11 +206,16 @@ class Rooms extends React.Component{
             document.querySelector("#note").value &&
             JSON.parse(localStorage.getItem("user")).name &&
             JSON.parse(localStorage.getItem("user")).email){
-                //creare funzione
-                
-                let startDate=this.formatDate(document.querySelector("#start").value);
-                let endDate=this.formatDate(document.querySelector("#end").value);
-                
+        
+                let today = new Date();
+                let dd = today.getDate();
+                let mm = today.getMonth()+1; //As January is 0.
+                let yyyy = today.getFullYear();
+                let fullDate=`${yyyy}-${mm}-${dd}`;
+                let timeStart=document.querySelector("#start").value;
+                let timeEnd=document.querySelector("#end").value;
+                let startDate=[fullDate,timeStart];
+                let endDate=[fullDate,timeEnd];
                 
                 if(document.querySelector("#start").value>document.querySelector("#end").value){
                     this.setState({
@@ -248,14 +255,7 @@ class Rooms extends React.Component{
                             bodyParameters,
                             config
                             ).then((response) => {
-                                    await strapi.pluins['email'].services.email.send({
-                                    to:JSON.parse(localStorage.getItem("user")).email, 
-                                    from: 'lomba.nicolo@gmail.com',
-                                    replyTo: 'lomba.nicolo@gmail.com',
-                                    subject: 'Use strapi email provider successfully',
-                                    text: 'Hello world!',
-                                    html: 'Hello world!'
-                                  });
+                                
                                 this.setState({
                                     error:false,
                                     message:"Prenotazione inviata. Riceverai una conferma via e-mail",
@@ -319,7 +319,9 @@ class Rooms extends React.Component{
         if(this.state.loading===true){
             return(
                 <>
-                <Header titoloPagina='Aule libere'/>
+                    <header>
+                        <h2>Aule Libere</h2>
+                    </header>
                     <section className="container-room">
                         <p>Caricamento</p>
                     </section>
@@ -328,7 +330,9 @@ class Rooms extends React.Component{
         }else{
             return(
                 <>
-                <Header titoloPagina='Aule libere'/>
+                    <header>
+                        <h2>Aule Libere</h2>
+                    </header>
                     <section className="container-room">
                         <section className="list-rooms">
                             <section className="headerImg">
