@@ -74,8 +74,10 @@
     }
     
 }
-.container-login input[type="submit"]{
+.container-login form>input[type="submit"]{
     height: 3em;
+    width: 100%;
+    transform: none;
     border: 0;
     border-radius: .5em;
     box-shadow: none;
