@@ -1,1 +1,28 @@
 @import './../variables.scss';
+
+.content-rewards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    padding:0 15px;
+}
+
+.card-rewards {
+    width: 100%;
+    height: auto;
+    // border: 1px solid black;
+    justify-self: center;
+
+    .rewards-animation {
+        background-color: red;  
+        border-radius: 50%;
+        img {
+            margin: 15px;
+        }
+    }
+    p {
+        text-align: center;
+    }
+}

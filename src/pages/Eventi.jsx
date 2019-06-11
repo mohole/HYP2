@@ -3,6 +3,7 @@ import Header from "./../components/Header";
 import "./Eventi.scss";
 
 import img_sostitutiva from "./../icone/mohole.jpg";
+
 class Card extends React.Component {
   constructor() {
     super();
@@ -83,6 +84,8 @@ class Eventi extends React.Component {
   }
 
   componentDidMount() {
+
+  console.log(this.state);
   }
 
   scrollCards(e) {

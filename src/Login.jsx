@@ -182,17 +182,14 @@ forgotPass(e){
           document.querySelector(".info").appendChild(p);
         }
       });
-
   }
-
-
 }
 loginSee(){
   return(
     <>
       <section className="container-login">
         <form>
-          <h1><img  src={logo} alt="logo Hyp"/></h1>
+          <h1><img src={logo} alt="logo Hyp"/></h1>
           <div className="info">
             <input type="text" name="username" placeholder="xxxxx@mohole.it" />
             <input type="password" name="password" placeholder="Password" />
