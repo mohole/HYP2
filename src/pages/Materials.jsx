@@ -2,24 +2,26 @@ import React from "react";
 import "./Rooms.scss";
 import axios from 'axios';
 import Header from './../components/Header';
+import pc from "./../icone/pc.svg";
 
-
+//render form opened
 class Form extends React.Component{
   
     render(){
             return(
                 <>
-                <form action="#" classroom={this.props.materialid}>
-                    <h2>Prenotazione</h2>
-
-                    <select action="#" classroom={this.props.classroomid}></select>
-                    
-                    <input type="submit"  value="Prenota" onClick={this.props.sendMail} />
+                <form action="#" materiale={this.props.materialid}>
+                    <h2>Prenotazione</h2>            
+                  {/*  <select>
+                    <option value={this.props.classroomid}>{this.props.classroomid}</option>
+                    <option value="classe">classe</option>
+                    </select>*/}
+                    <input type="submit"  value="Get" onClick={this.props.sendMail} />
                 </form>
         
-        
+
                 </>
-            ); 
+            );
         
         
 
@@ -42,9 +44,9 @@ class ListItem extends React.Component{
         
     }
     check(){
-        this.props.reservation.map((reserv)=>{
-            if(reserv.room!==null){
-                if(reserv.room.id===this.props.keyValue){
+        this.props.reservation.forEach((reserv)=>{
+            if(reserv.material!==null){
+                if(reserv.material.id===this.props.keyValue){
                     this.setState({
                         avail:false
                     });
@@ -85,9 +87,8 @@ class ListItem extends React.Component{
                     <span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <a href="#" onClick={this.closeForm} >X</a>
                     </div>   
                     <Form sendMail={this.props.sendMail} materialid={this.props.keyValue} />
-                
-                
                 </li>
+                
                
             );
         }
@@ -100,8 +101,8 @@ class Materials extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            availableMats:[],
-            reservationMats:[],
+            availableMat:[],
+            reservationMat:[],
             loading: true,
             error:false,
             message:''
@@ -138,11 +139,20 @@ class Materials extends React.Component{
                     Authorization: `Bearer ${token}`
                 }
                 })
-                .then(response => response.data)
-              ]).then(([classroom,resMats]) => {
+                .then(response =>response.data),
+                /*
+                .then(response => response.data),
+                axios
+                .get('https://node.mohole.it/rooms', {
+                  headers: {
+                    Authorization: `Bearer ${token}`
+                  }
+                })*/                
+              ]).then(([materiale,resMat]) => {
                 this.setState({
-                  availableMats:classroom,
-                  reservationMats:resMats,
+                  availableMat:materiale,
+                  reservationMat:resMat,
+                  /*availableClass:classroom,*/
                   loading: false
                  
                 });
@@ -186,27 +196,26 @@ class Materials extends React.Component{
     sendEmail(e){
     e.preventDefault(); 
     
-    let roomId= e.currentTarget.parentNode.getAttribute("classroom");
+    let materialId= e.currentTarget.parentNode.getAttribute("materiale");
     let token;
-    let checkRoom=true;
     setTimeout(() => {
       
-        if(document.querySelector("#start").value &&
-            document.querySelector("#end").value &&
-            JSON.parse(localStorage.getItem("user")).name &&
+        if( JSON.parse(localStorage.getItem("user")).name &&
             JSON.parse(localStorage.getItem("user")).email){
-                //creare funzione
                 
-                let startDate=this.formatDate(document.querySelector("#start").value);
-                let endDate=this.formatDate(document.querySelector("#end").value);
+                let today = new Date();
+                let dd = today.getDate();
+                let mm = today.getMonth()+1; //As January is 0.
+                let yyyy = today.getFullYear();
+                let fullDate=`${yyyy}-${mm}-${dd}`;
+                let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                //let timeStart=document.querySelector("#start").value;
+                let timeEnd= null;
+                let startDate=[fullDate,time];
+                let endDate=[fullDate,timeEnd];
                 
                 
-                if(document.querySelector("#start").value>document.querySelector("#end").value){
-                    this.setState({
-                        error:false,
-                        message:"Controlla che la data e l'orario di fine prenotazione sia maggiore di quella d'inizio"
-                    });
-                }else{
+                
                     token=JSON.parse(localStorage.getItem('user')).token;
                     var config = {
                         headers: {'Authorization': "bearer " + token}
@@ -217,37 +226,29 @@ class Materials extends React.Component{
                     }
                     })
                     .then(response=> {
-                        response.data.map((valore)=>{
-                            if(valore.room.id!==null){
-                                if(parseInt(valore.room.id)===parseInt(roomId)){
-                                  checkRoom=false;
+                        let checkMaterial=true;
+                        response.data.forEach((valore)=>{
+                            if(valore.material.id!==null){
+                                if(parseInt(valore.material.id)===parseInt(materialId)){
+                                  checkMaterial=false;
                                 }
                             }                     
                          });
-                         if(checkRoom===true)  {
+                         if(checkMaterial===true)  {
                             var bodyParameters = {
                                 start_date:`${startDate[0]} ${startDate[1]}`,
                                 end_date: `${endDate[0]} ${endDate[1]}`,
                                 student: JSON.parse(localStorage.getItem("user")).id,
-                                room:roomId,
-                                conferma: "inattesa"
+                                material:materialId
                             }
                             axios.post( 
                             'https://node.mohole.it/reservationmats',
                             bodyParameters,
                             config
                             ).then((response) => {
-                                /* await strapi.plugins['email'].services.email.send({
-                                    to:JSON.parse(localStorage.getItem("user")).email, 
-                                    from: 'lomba.nicolo@gmail.com',
-                                    replyTo: 'no-reply@strapi.io',
-                                    subject: 'Use strapi email provider successfully',
-                                    text: 'Hello world!',
-                                    html: 'Hello world!'
-                                  }); */
                                 this.setState({
                                     error:false,
-                                    message:"Prenotazione inviata. Riceverai una conferma via e-mail"
+                                    message:"Materiale prenotato!"
                                 });
                                 this.setAll();
                             
@@ -264,7 +265,7 @@ class Materials extends React.Component{
                         }else{
                             this.setState({
                                 error:true,
-                                message:"l'aula è appena stata prenotata"
+                                message:"il materiale è appena stato prenotato da un altro studente"
                             });
                             
                         }    
@@ -278,7 +279,7 @@ class Materials extends React.Component{
                             /* window.location.reload() */
                         });
      
-                }
+                
                 
                 
             }else{
@@ -324,16 +325,17 @@ class Materials extends React.Component{
                     <section className="container-room">
                         <section className="list-rooms">
                             <section className="headerImg">
-                                <p></p>
+                                <img src={pc} alt="pc"/>
                             </section>
                             <p className="subTitle"> <b>LAP TOP</b> </p>
                             <p className={`${show} ${typeMsg}`} >{this.state.message}</p>
                             <ul>
                                 {
-                                    (this.state.availableMats.map((item)=><ListItem  keyValue={item.id} reservation={this.state.reservationMats} sendMail={this.sendEmail} checkForm={true} key={item.id} {...item} />))               
+                                    (this.state.availableMat.map((item)=><ListItem  keyValue={item.id} reservation={this.state.reservationMat} sendMail={this.sendEmail} checkForm={true} key={item.id} {...item} />))               
                                 }
                             
                             </ul>
+
                         </section>
                     </section>
                 </>

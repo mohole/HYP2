@@ -2,6 +2,7 @@ import React from "react";
 import "./Rooms.scss";
 import logoRoom from "./../icone/icona-aule.svg";
 import arrow from "./../icone/arrow.svg";
+import Header from './../components/Header';
 import axios from 'axios';
 
 class Form extends React.Component{
@@ -319,9 +320,9 @@ class Rooms extends React.Component{
         if(this.state.loading===true){
             return(
                 <>
-                    <header>
-                        <h2>Aule Libere</h2>
-                    </header>
+                    <Header titoloPagina = "Get Back">
+                        
+                    </Header>
                     <section className="container-room">
                         <p>Caricamento</p>
                     </section>
@@ -330,9 +331,9 @@ class Rooms extends React.Component{
         }else{
             return(
                 <>
-                    <header>
-                        <h2>Aule Libere</h2>
-                    </header>
+                    <Header titoloPagina= "Aule Libere">
+                        
+                    </Header>
                     <section className="container-room">
                         <section className="list-rooms">
                             <section className="headerImg">
