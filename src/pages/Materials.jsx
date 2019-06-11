@@ -75,9 +75,9 @@ class ListItem extends React.Component{
     render(){
         
         if(!this.state.clicked){
-            
+            console.log(this.props.reservation[0].user.id);
             return(
-                 <li materialid={this.props.keyValue} onClick={this.state.avail?this.openForm:null}><span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p>{/*  {this.props.checkForm ?<a href="#" materialid={this.props.keyValue} onClick={this.openForm} >Prenota</a>:""} */}</li>
+                 <li materialid={this.props.keyValue} onClick={this.state.avail?this.openForm:null}><span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <a href="#" className={this.props.reservation[0].user.id===JSON.parse(localStorage.getItem('user')).id?'show':'hidden'} onClick={this.closeForm}>X</a> {/*  {this.props.checkForm ?<a href="#" materialid={this.props.keyValue} onClick={this.openForm} >Prenota</a>:""} */}</li>
                
             );
         }else{
@@ -118,6 +118,30 @@ class Materials extends React.Component{
 
         
     }
+
+    update(){
+        let token=JSON.parse(localStorage.getItem('user')).token;
+        axios.put("/reservationmats/:id", {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            },endDate:this.time})
+            .then((response) => {
+                this.setState({
+                    error:false,
+                    message:"Materiale prenotato!"
+                });
+                this.setAll();
+                window.location.reload()
+            }).catch((error) => {
+                this.setState({
+                    error:true,
+                    message:"Ops c'è stato un piccolo problema. Riprovare."
+                });
+        });
+    }
+
+
+
     setAll(){
         let token;
         setTimeout(() => {
@@ -238,7 +262,7 @@ class Materials extends React.Component{
                             var bodyParameters = {
                                 start_date:`${startDate[0]} ${startDate[1]}`,
                                 end_date: `${endDate[0]} ${endDate[1]}`,
-                                student: JSON.parse(localStorage.getItem("user")).id,
+                                user: JSON.parse(localStorage.getItem("user")).id,
                                 material:materialId
                             }
                             axios.post( 
@@ -329,11 +353,13 @@ class Materials extends React.Component{
                             </section>
                             <p className="subTitle"> <b>LAP TOP</b> </p>
                             <p className={`${show} ${typeMsg}`} >{this.state.message}</p>
+
                             <ul>
+                                
                                 {
-                                    (this.state.availableMat.map((item)=><ListItem  keyValue={item.id} reservation={this.state.reservationMat} sendMail={this.sendEmail} checkForm={true} key={item.id} {...item} />))               
+                                    (this.state.availableMat.map((item)=><ListItem  keyValue={item.id} reservation={this.state.reservationMat} sendMail={this.sendEmail} checkForm={true} key={item.id} {...item}  />))               
                                 }
-                            
+
                             </ul>
 
                         </section>
