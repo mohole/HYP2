@@ -24,13 +24,13 @@ perche noi crediamo nell'imparare mettendo in pratica le nozioni
 per conoslidare le competenze
     
 ## Perché Strapi
-    come collegare strapi
-    axios
+come collegare strapi
+axios
 
 ## perché wp-api
-    come collegare wp-api
+come collegare wp-api
 
 ## perche HYP2
-    ci fu HYP
-    falli
-    ora c'é HYP2
+ci fu HYP
+falli
+ora c'é HYP2
