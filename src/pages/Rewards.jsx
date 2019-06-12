@@ -17,9 +17,9 @@ class Ribbon extends React.Component {
 
   render() {
     return (
-      <div className="card-rewards"  key={this.props.k}>
+      <div  className={this.props.classi} key={this.props.k}>
         <div className="rewards-animation">
-          <img src={rewardsSvg} alt="rewards logo" />
+          <img src={rewardsSvg} alt="rewards logo"  />
         </div>
         <p>{this.props.title}</p>
       </div>
@@ -43,8 +43,7 @@ class Rewards extends React.Component {
       Promise.all([
         axios
           .get(
-            "https://node.mohole.it/lessons?students_contains=" +
-              JSON.parse(localStorage.getItem("user")).id,
+            "https://node.mohole.it/lessons",
             {
               headers: {
                 Authorization: `Bearer ${token}`
@@ -57,9 +56,10 @@ class Rewards extends React.Component {
           lessons: lessons,
           loading: false
         });
-        // console.log(this.state);
+        console.log(this.state);
       });
     }, 1);
+
   } // end constructor
 
   
@@ -73,8 +73,8 @@ class Rewards extends React.Component {
       );
     } else {
       const classes = this.state.lessons.map((p) => {
-        // var data = new Date();
-        // var data_fine = new Date(p.end_date);
+        var data = new Date();
+        var data_fine = new Date(p.end_date);
 
         // console.log(data_fine)
         console.log(p);
@@ -84,10 +84,13 @@ class Rewards extends React.Component {
 
         // if (stud.name == JSON.parse(localStorage.getItem('user')).id) {
         //     console.log('ok')
-        //     if (data > data_fine) {
-        //       console.log('corso finito')
-        //     }
-        return <Ribbon key={p.id} title={p.title} />;
+            if (data > data_fine) {
+              return <Ribbon key={p.id} title={p.title} classi='card-rewards finito'/>;
+              // console.log('corso finito')
+            } else {
+              return <Ribbon key={p.id} title={p.title} classi='card-rewards'/>;
+            }
+        
 
         // } else {
         //   return(
