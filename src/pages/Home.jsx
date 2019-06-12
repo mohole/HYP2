@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.scss";
 import arrow from "./../icone/arrow.svg";
+import userImg from "./../icone/icona-foto.svg";
 import axios from 'axios';
 import Header from "./../components/Header";
 import Loading from "./../components/Loader"
@@ -9,7 +10,8 @@ class SummaryStudents extends React.Component{
     render(){
         return(
             <section className="summary">
-                <img src="#" alt="img_students" width="120" height="120"/>
+               
+                <img src={userImg} alt="img_students" width="130" height="130"/>
                 <p>{this.props.studentData.username}</p>
                 <p>Corso Studente</p>
                 <section className="summary-lessons">
