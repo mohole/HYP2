@@ -2,12 +2,13 @@
 HYP is an App sviluppata a livello scolastico da …
 
 ## Perche
+## Goals of the project
 dopo aver notato delle mancanze da parte del servizio utilizzato dalla scuola come gestionale delle attivita scolastiche ci siamo messi in gioco per creare un applicazione per avvicinare le informazioni, attivita, novita della scuola allo studente medio 
 
 il risultato e una PWA
 il risultato finale necessita fondi per essere migliorata
 
-##Getting starter
+## Getting starter
 ### Visualizzare la PWA
 il sito e online tramite Netlify
 
