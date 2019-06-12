@@ -16,7 +16,10 @@ il sito e online tramite Netlify
 ```sh
 git clone …. 
 cd hyp …. 
+npm install
+npm start
 ```
+...and the magic happens ( ◔ ౪◔)⊃━☆ﾟ.*・
 
 ## Perché react
 pressoche tecnologia imposta 
@@ -34,3 +37,10 @@ come collegare wp-api
 ci fu HYP
 falli
 ora c'é HYP2
+
+## requiremnts
+node.js
+account strapi 
+
+## si ringrazia
+
