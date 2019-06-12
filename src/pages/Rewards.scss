@@ -7,6 +7,7 @@
     grid-column-gap: 10px;
     grid-row-gap: 15px;
     padding:0 15px;
+    margin-top: 1em;
 }
 
 .card-rewards {
@@ -16,7 +17,7 @@
     justify-self: center;
 
     .rewards-animation {
-        background-color: red;  
+        @include gradient(set-attribute(web, angle), set-attribute(web, start), set-attribute(web, end));
         border-radius: 50%;
         img {
             margin: 15px;
@@ -25,4 +26,8 @@
     p {
         text-align: center;
     }
+}
+.finito {
+    opacity: 0.5;
+    order: 1;
 }
