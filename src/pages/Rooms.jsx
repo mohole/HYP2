@@ -3,6 +3,7 @@ import "./Rooms.scss";
 import logoRoom from "./../icone/icona-aule.svg";
 import arrow from "./../icone/arrow.svg";
 import Header from './../components/Header';
+import Loading from './../components/Loader'
 import axios from 'axios';
 
 class Form extends React.Component{
@@ -320,11 +321,9 @@ class Rooms extends React.Component{
         if(this.state.loading===true){
             return(
                 <>
-                    <Header titoloPagina = "Get Back">
-                        
-                    </Header>
+                    <Header titoloPagina = "Aule Libere"/>
                     <section className="container-room">
-                        <p>Caricamento</p>
+                        <Loading />
                     </section>
                 </>
                 );

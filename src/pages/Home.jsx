@@ -3,6 +3,7 @@ import "./Home.scss";
 import arrow from "./../icone/arrow.svg";
 import axios from 'axios';
 import Header from "./../components/Header";
+import Loading from "./../components/Loader"
 
 class SummaryStudents extends React.Component{
     render(){
@@ -116,7 +117,7 @@ class Home extends React.Component{
             return(
                 <>
                 <Header titoloPagina='Home'/>
-                    <p>in caricamento</p>
+                <Loading />
                 </>
             )
         }else{
