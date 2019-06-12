@@ -38,8 +38,8 @@ pressoché imposto...
 link al github di Caterina
 
 ## perche HYP2
-ci fu HYP
-falli
+ci fu HYP,
+falli,
 ora c'é HYP2
 
 ## requiremnts
