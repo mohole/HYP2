@@ -31,7 +31,8 @@ come collegare strapi
 axios
 
 ## perché wp-api
-come collegare wp-api
+pressoché imposto...
+###come collegare wp-api
 
 ## perche HYP2
 ci fu HYP
