@@ -8,12 +8,20 @@ header {
     left: 0;
     @include gradient(set-attribute(web, angle), set-attribute(web, start), set-attribute(web, end));
     width: 100%;
-
+    justify-content: space-between;
     height: 8vh;
     padding: 2vh;
     z-index: 2;
     transform: rotate(-3deg) translateY(-3vh) translateX(-20px);
-
+    .contain{
+        position: absolute;
+        top: 0;
+        transform: rotate(3deg);
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        padding-top: .8em;
+    } 
     h1 {
         position: absolute;
         bottom: -22px;
@@ -30,6 +38,9 @@ header {
         width: auto;
         margin-left: 2em;
         margin-top: 1.5em;
-        transform: rotate(3deg);
+    }
+    img:last-child{
+       margin: 0;
+       align-self: flex-end;
     }
 }
