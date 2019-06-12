@@ -28,13 +28,13 @@ per conoslidare le competenze
     
 ## Perché Strapi
 come collegare strapi
-###axios
+### axios
 link al github di Marco 
 link al github di Nicolo
 
 ## perché wp-api
 pressoché imposto...
-###come collegare wp-api
+### come collegare wp-api
 link al github di Caterina
 
 ## perche HYP2
