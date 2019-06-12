@@ -29,33 +29,13 @@ per conoslidare le competenze
 ## Perché Strapi
 come collegare strapi
 ###axios
+link al github di Marco 
+link al github di Nicolo
 
 ## perché wp-api
 pressoché imposto...
 ###come collegare wp-api
-
-```sh
- Promise.all([
-      fetch("https://moholepeople.it/dashboard/wp-json/wp/v2/posts/").then(
-        data => data.json()
-      ),
-      fetch("https://moholepeople.it/dashboard/wp-json/wp/v2/media/").then(
-        media => media.json()
-      ),
-      fetch("https://moholepeople.it/dashboard/wp-json/acf/v3/posts").then(
-        data => data.json()
-      )
-    ]).then(([posts, media, calendar, categories]) => {
-      this.setState({
-        posts,
-        media,
-        calendar,
-        categories, 
-        loading: false
-      });
-      console.log(this.state);
-    });
-```
+link al github di Caterina
 
 ## perche HYP2
 ci fu HYP
