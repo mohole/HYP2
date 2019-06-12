@@ -15,6 +15,7 @@
     width: 80%;
     min-height: 70%;
     height: 82%;
+    margin-top: 15px;
     position: relative;
     @include shadow();
     &>.subTitle{
@@ -25,10 +26,11 @@
     &>ul{
         display: flex;
         flex-direction: column;
-        height: 69%;
+        height: 65%;
         list-style: none;
         padding: 0 .5em;
         overflow-y: scroll;
+        
         &>li{
             display: flex;
             justify-content: space-between;
@@ -46,6 +48,9 @@
         
     }
 }
+ ul li:last-child {
+    margin-bottom: 4em;
+  }
 .headerImg{
     height: 80px;
     display: flex;
