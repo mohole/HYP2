@@ -17,7 +17,7 @@
     justify-self: center;
 
     .rewards-animation {
-        @include gradient(set-attribute(web, angle), set-attribute(web, start), set-attribute(web, end));
+        @include gradient(set-attribute(fotografia, angle), set-attribute(fotografia, start), set-attribute(fotografia, end));
         border-radius: 50%;
         img {
             margin: 15px;
