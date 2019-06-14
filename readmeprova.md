@@ -48,12 +48,12 @@ node.js
 account strapi 
 
 ## Graphics stuff
-font
+### Font
 ```sh
 $font-title: 'Baloo Bhai',cursive;
 $font-text: 'Open Sans', sans-serif;
 ```
-pattern
+### pattern
 ```sh
 
 $colors: ('web': (start: rgba(39, 14, 122, 1),
@@ -84,8 +84,8 @@ $colors: ('web': (start: rgba(39, 14, 122, 1),
 );
 ```
 
-animation
+### Animation
 
 
 ## si ringrazia
-
+Mohole
