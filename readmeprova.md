@@ -85,7 +85,7 @@ $colors: ('web': (start: rgba(39, 14, 122, 1),
 ```
 
 ### Animation
-
+![](src/icone/mohole.jpg)
 
 ## si ringrazia
 Mohole
