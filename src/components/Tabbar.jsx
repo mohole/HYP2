@@ -17,11 +17,11 @@ class Tabbar extends React.Component {
       active: "3",
       page: "/",
       notifiche: {
-        rooms: 2,
+        rooms: 0,
         materials: 0,
         rewards: 3,
-        eventi: 0,
-        index: 4
+        eventi: 2,
+        index: 0
       }
     };
     // this.animateTabbar = this.animateTabbar.bind(this);
