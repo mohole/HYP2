@@ -1,18 +1,20 @@
 ![](src/icone/ufo-blind.gif)
 
-*** testo da sistemare ***
-HYP is an App sviluppata a livello scolastico da …
+HYP is an App designed and developed by four students at [Scuola Mohole](https://scuola.mohole.it)
 
-## Perche
-## Goals of the project
-dopo aver notato delle mancanze da parte del servizio utilizzato dalla scuola come gestionale delle attivita scolastiche ci siamo messi in gioco per creare un applicazione per avvicinare le informazioni, attivita, novita della scuola allo studente medio 
+(ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) 
 
-il risultato e una PWA
-il risultato finale necessita fondi per essere migliorata
+## Goals of the project “φʕ•ᴥ•oʔ
+Dopo aver notato delle mancanze da parte del servizio utilizzato dalla scuola come gestionale delle attivita scolastiche ci siamo messi in gioco per creare un applicazione per avvicinare le informazioni, attivita, novita della scuola allo studente medio 
+
+Il risultato e una PWA. 
+Il risultato finale è un prototipo, necessita fondi per essere migliorato
 
 ## Getting starter
-### Visualizzare la PWA
-il sito e online tramite Netlify
+### Visit WebSite ~ Download PWA
+il sito e online tramite Netlify al link ==> [Happy Beaver](https://happy-beaver-hyp.netlify.com/)
+
+(ᵔᴥᵔ)
 
 ### Migliorare HYP
 
