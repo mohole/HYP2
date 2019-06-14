@@ -1,3 +1,5 @@
+![](src/icone/ufo-blind.gif)
+
 *** testo da sistemare ***
 HYP is an App sviluppata a livello scolastico da …
 
