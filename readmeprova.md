@@ -49,6 +49,10 @@ account strapi
 
 ## Graphics stuff
 font
+```sh
+$font-title: 'Baloo Bhai',cursive;
+$font-text: 'Open Sans', sans-serif;
+```
 pattern
 ```sh
 
