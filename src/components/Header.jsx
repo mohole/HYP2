@@ -15,7 +15,7 @@ class Header extends React.Component {
 
   }
   logout(){
-    window.location.replace("http://localhost:3000");
+    window.location.replace("https://happy-beaver.netlify.com");
     localStorage.clear();
     this.setState({
       redirect:false
