@@ -5,14 +5,14 @@ HYP is an App designed and developed by four students at [Scuola Mohole](https:/
 (ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) 
 
 ## Goals of the project “φʕ•ᴥ•oʔ
-Dopo aver notato delle mancanze da parte del servizio utilizzato dalla scuola come gestionale delle attivita scolastiche ci siamo messi in gioco per creare un applicazione per avvicinare le informazioni, attivita, novita della scuola allo studente medio 
+Dopo aver notato delle mancanze da parte del servizio utilizzato dalla scuola come gestionale delle attività scolastiche ci siamo messi in gioco per creare un applicazione per avvicinare le informazioni, attività, novita della scuola allo studente medio 
 
-Il risultato e una PWA. 
+Il risultato è una PWA. 
 Il risultato finale è un prototipo, necessita fondi per essere migliorato
 
 ## Getting starter
 ### Visit WebSite ~ Download PWA
-il sito e online tramite Netlify al link ==> [Happy Beaver](https://happy-beaver-hyp.netlify.com/)
+il sito è online tramite Netlify al link ==> [Happy Beaver](https://happy-beaver-hyp.netlify.com/)
 
 (ᵔᴥᵔ)
 
@@ -27,9 +27,9 @@ npm start
 ...and the magic happens ( ◔ ౪◔)⊃━☆ﾟ.*・
 
 ## Perché React
-pressoche tecnologia imposta 
+pressochè tecnologia imposta 
 perche noi crediamo nell'imparare mettendo in pratica le nozioni 
-per conoslidare le competenze
+per consolidare le competenze
     
 ## Perché Strapi
 come collegare strapi
@@ -43,7 +43,7 @@ pressoché imposto...
 link al github di Caterina
 
 ## perche HYP2
-ci fu HYP,
+ci fù HYP,
 falli,
 ora c'é HYP2
 
