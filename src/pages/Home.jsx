@@ -4,7 +4,9 @@ import arrow from "./../icone/arrow.svg";
 import userImg from "./../icone/icona-foto.svg";
 import axios from 'axios';
 import Header from "./../components/Header";
-import Loading from "./../components/Loader"
+import Loading from "./../components/Loader";
+
+import Ribbon from "./../components/Ribbon";
 
 class SummaryStudents extends React.Component{
     render(){
@@ -43,21 +45,79 @@ class SummaryStudents extends React.Component{
     }
 }
 class SummaryRewards extends React.Component{
-    render(){
-        return(
-            <section className="summary-rewards">
-                {/* Diventerà un ciclo */}
-                <div className="achievement"></div>
-                <div className="achievement"></div>
-                <div className="achievement"></div>
-                <div className="achievement"></div>
-                <div className="achievement"></div>
-                <div className="achievement"></div>
+    
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    };
 
-            </section>
+    let token;
+    setTimeout(() => {
+      if (localStorage.getItem("user")) {
+        token = JSON.parse(localStorage.getItem("user")).token;
+      }
+      // strapi filter
+      Promise.all([
+        axios
+          .get(
+            "https://node.mohole.it/lessons",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            }
+          )
+          .then(response => response.data)
+      ]).then(([lessons]) => {
+        this.setState({
+          lessons: lessons,
+          loading: false
+        });
+        console.log(this.state);
+      });
+    }, 1);
 
-        );
+  } // end constructor
+
+  
+  render() {
+    if (this.state.loading) {
+      return (
+         <p>in caricamento</p>
+      );
+    } else {
+      const RibbonClasses = this.state.lessons.map((p) => {
+        var data = new Date();
+        var data_fine = new Date(p.end_date);
+
+        // console.log(data_fine)
+        console.log(p);
+        // console.log(p.students)
+        // p.students.find(stud => {
+        //   console.log(stud)
+
+        // if (stud.name == JSON.parse(localStorage.getItem('user')).id) {
+        //     console.log('ok')
+            if (data < data_fine) {
+              return <Ribbon key={p.id} title={p.title} classi='card-rewards'/>;
+            }
+        
+
+        // } else {
+        //   return(
+        //     <p> Nessuna lezione </p>
+        //   )
+        // }
+        // });
+      });
+      return (
+        <>
+          <div className="summary-rewards">{RibbonClasses}</div>
+        </>
+      );
     }
+  }
 }
 
 class SummaryLesson extends React.Component{
@@ -100,20 +160,11 @@ class Home extends React.Component{
                 this.setState({
                     student:studentCorrent,
                     loading: false
-                 
                 });
-                
-
-               
               });
-            
-      
-        
         }, 1);
-        
     }
    
-    
     render(){
         if(this.state.loading){
             return(

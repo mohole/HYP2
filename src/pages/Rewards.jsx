@@ -3,29 +3,12 @@ import "./Rewards.scss";
 import Header from "./../components/Header";
 import axios from "axios";
 import Loader from "./../components/Loader";
-import rewardsSvg from "./../icone/rewards.svg";
+import Ribbon from "./../components/Ribbon";
 
 // import ReactBodymovin from "react-bodymovin";
 // // import bodymovin from "./../animation/lottie";
 // import ufoJSON from "./../animation/ufo.json";
 
-class Ribbon extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div  className={this.props.classi} key={this.props.k}>
-        <div className="rewards-animation">
-          <img src={rewardsSvg} alt="rewards logo"  />
-        </div>
-        <p>{this.props.title}</p>
-      </div>
-    );
-  }
-}
 
 class Rewards extends React.Component {
   constructor(props) {
@@ -72,7 +55,7 @@ class Rewards extends React.Component {
         </>
       );
     } else {
-      const classes = this.state.lessons.map((p) => {
+      const RibbonClasses = this.state.lessons.map((p) => {
         var data = new Date();
         var data_fine = new Date(p.end_date);
 
@@ -102,7 +85,7 @@ class Rewards extends React.Component {
       return (
         <>
           <Header titoloPagina="Rewards" />
-          <div className="content content-rewards">{classes}</div>
+          <div className="content content-rewards">{RibbonClasses}</div>
         </>
       );
     }

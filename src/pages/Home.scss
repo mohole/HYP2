@@ -83,13 +83,15 @@
         align-items: center;
         overflow-x: scroll;
         flex-wrap: nowrap;
-        .achievement{
-            width: 90px;
-            height: 90px;
-            border-radius: 5px;
-            margin: 4%;
-            @include gradient(45deg, set-attribute(filmaking, start), set-attribute(filmaking, end));
-            flex: 0 0 auto;
+        .card-rewards{
+            padding: 20px;
+        // .achievement{
+        //     width: 90px;
+        //     height: 90px;
+        // //     border-radius: 5px;
+        //     margin: 10px;
+        //     @include gradient(45deg, set-attribute(filmaking, start), set-attribute(filmaking, end));
+        //     flex: 0 0 auto;
         }
         
     }
