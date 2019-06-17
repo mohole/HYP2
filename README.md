@@ -1,68 +1,99 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](src/icone/ufo-blind-white.gif)
 
-## Available Scripts
+HYP is an App designed and developed by four students at [Scuola Mohole](https://scuola.mohole.it)
 
-In the project directory, you can run:
+(ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) 
 
-### `npm start`
+## Goals of the project “φʕ•ᴥ•oʔ
+Dopo aver notato delle mancanze da parte del servizio utilizzato dalla scuola come gestionale delle attività scolastiche ci siamo messi in gioco per creare un applicazione per avvicinare le informazioni, attività, novita della scuola allo studente medio 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Il risultato è una PWA. 
+Il risultato finale è un prototipo, necessita fondi per essere migliorato
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Getting starter
+### Visit WebSite ~ Download PWA
+il sito è online tramite Netlify al link ==> [Happy Beaver](https://happy-beaver-hyp.netlify.com/)
 
-### `npm test`
+(ᵔᴥᵔ)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Migliorare HYP
 
-### `npm run build`
+```sh
+git clone …. 
+cd hyp …. 
+npm install
+npm start
+```
+...and the magic happens ( ◔ ౪◔)⊃━☆ﾟ.*・
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tecnologie usate
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Per questo progetto siamo stati piacevolmente sfidati ad usare **REACT** e **STRAPI**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**REACT** è un **_libreria_**  Javascript pensata per la realizzazione di User Interfaces mentre **STRAPI** viene utilizzato per lo sviluppo backend.
 
-### `npm run eject`
+Di seguito lasciamo i link alle loro documentazione:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**[REACT](https://reactjs.org/)** <br/>
+**[STRAPI](https://strapi.io/)**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## WP-API
+Per una sezione dell'applicazione abbiamo usato un collegamento alle API di WordPress e per vedere la loro configurazione vi mandiamo al Github di **[Caterina](https://github.com/icate95/HYPsComponents_Events)**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## perchè HYP2?
+~~ci fù HYP~~,
+*fallì*,
+ora c'é **HYP2**
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Graphics stuff
+### Font
+```sh
+$font-title: 'Baloo Bhai',cursive;
+```
+![fontBaloo](https://github.com/icate95/HYP2/blob/master/src/cestino/baloo.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+$font-text: 'Open Sans', sans-serif;
+```
 
-### Code Splitting
+![fontOpen](https://github.com/icate95/HYP2/blob/master/src/cestino/openSans.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+### pattern
+```sh
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+$colors: ('web': (start: rgba(39, 14, 122, 1),
+    end: rgba(184, 14, 122, 1),
+    angle: 30deg),
+  'acting': (start:  rgba(178, 103, 136, 1) ,
+    end: rgba(255, 103, 160, 1),
+    angle: 30deg),
+  'fotografia': (start:  rgba(49, 172, 228, 1),
+    end: rgba(142, 152, 228, 1),
+    angle: 30deg),
+  'storytelling': (start:  rgba(246, 109, 155, 1),
+    end: rgba(211, 156, 228, 1),
+    angle: 30deg),
+  'filmaking': (start: rgba(79, 221, 160, 1),
+    end:rgba(181,
+    255, 168, 1),
+    angle: 30deg),
+  'fumetto': (start: rgba(39, 14, 122, 1),
+    end: rgba(184, 14, 122, 1),
+    angle: 30deg),
+  '3d': (start: rgba(39, 14, 122, 1),
+    end: rgba(184, 14, 122, 1),
+    angle: 30deg),
+  'grafica': (start: #ff2915,
+    end: #ffdd47,
+    angle: 30deg),
+);
+```
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## si ringrazia
+Mohole
+![](src/icone/mohole.jpg)
