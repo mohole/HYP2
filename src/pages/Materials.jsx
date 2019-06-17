@@ -6,6 +6,8 @@ import pc from "./../icone/pc.svg";
 
 //render form opened
 class Form extends React.Component{
+
+    
   
     render(){
             return(
@@ -24,11 +26,11 @@ class Form extends React.Component{
     }
     
 }
+
 class ListItem extends React.Component{
     constructor(props){
         super(props);
-        console.log(this.props.reservation);
-        console.log(this.props.arrayMat);
+     
         this.state={
             clicked:false,
             form:false,
@@ -43,8 +45,6 @@ class ListItem extends React.Component{
         this.closeForm=this.closeForm.bind(this);
         this.check=this.check.bind(this);
         this.checkX=this.checkX.bind(this);
-        this.aggiorna=this.aggiorna.bind(this);
-        this.checkBack=this.checkBack.bind(this);
 
         
     }
@@ -63,24 +63,18 @@ class ListItem extends React.Component{
      checkX(){
         this.props.reservation.forEach((reserv)=>{
             if(reserv.material!==null){
-                console.log()
-                    if(reserv.material.id===this.props.keyValue && reserv.user.id===JSON.parse(localStorage.getItem('user')).id){       
+                    if(reserv.material.id===this.props.keyValue && reserv.user.id===JSON.parse(localStorage.getItem('user')).id
+                    )
+                    {       
                         this.setState({
                             backtype:false,
                             reservationuser:reserv.id,
                         });
                       }
-                      console.log(`boh${this.state.backtype}`);
+                    
             }
         })
-     }
-
-     checkBack(){
-        this.setState({
-            backtype:true,
-            avail:true
-        });
-     }
+      }
      
     openForm(e){
         document.querySelector("ul").scrollTo(0, Math.abs( e.currentTarget.offsetTop-115));      
@@ -98,42 +92,6 @@ class ListItem extends React.Component{
         this.check();
         this.checkX();
    }
-
-   aggiorna(e){
-    setTimeout(() => {
-        let today = new Date();
-                let dd = today.getDate();
-                let mm = today.getMonth()+1; //As January is 0.
-                let yyyy = today.getFullYear();
-                let fullDate=`${yyyy}-${mm}-${dd}`;
-                let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                let endDate=[fullDate,time];
-
-    //e.preventDefault();
-    console.log(this.state.reservationuser);
-    //let token=JSON.parse(localStorage.getItem('user')).token;
-    axios.put(`https://node.mohole.it/reservationmats/${this.state.reservationuser}`, {
-       End_date: `${endDate[0]} ${endDate[1]}`})
-        .then((response) => {
-            this.setState({
-                error:false,
-                message:"Materiale reso!",
-                form:false,
-                backtype:true,
-                avail:true,
-                tnt:true
-            });
-            console.log("ciao");
-            window.location.reload()
-        }).catch((error) => {
-            this.setState({
-                error:true,
-                message:"Ops c'è stato un piccolo problema. Riprovare."
-            });
-    });
-
-})
-}
   
     
     render(){
@@ -153,7 +111,7 @@ class ListItem extends React.Component{
                 <>        
                 <p className={`${show} ${typeMsg}`} >{this.state.message}</p>
 
-                <li materialid={this.props.keyValue} onClick={this.state.avail?this.openForm:null}><span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <span href="#" className={!this.state.backtype?'show':'hidden'} onClick={this.aggiorna && this.checkBack}>Back</span> </li>
+                <li materialid={this.props.keyValue} onClick={this.state.avail?this.openForm:null}><span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <span href="#" className={!this.state.backtype?'show':'hidden'} onClick={()=>this.props.sendAggiorna(this.state.reservationuser)}>Back</span> </li>
               </>
             );
         }else{
@@ -180,7 +138,7 @@ class Materials extends React.Component{
             arrayMaterial:[],
             availableMat:[],
             reservationMat:[],
-            loading: true,
+            loading: false,
             error:false,
             message:''
             
@@ -191,8 +149,48 @@ class Materials extends React.Component{
         this.formatDate=this.formatDate.bind(this);
         this.setAll=this.setAll.bind(this);
         this.setAll();
+        this.aggiorna=this.aggiorna.bind(this);
 
         
+    }
+
+    aggiorna(elem){
+        setTimeout(() => {
+
+            let today = new Date();
+                    let dd = today.getDate();
+                    let mm = today.getMonth()+1; //As January is 0.
+                    let yyyy = today.getFullYear();
+                    let fullDate=`${yyyy}-${mm}-${dd}`;
+                    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    let endDate=[fullDate,time];
+    
+        //e.preventDefault();
+       
+        //let token=JSON.parse(localStorage.getItem('user')).token;
+        axios.put(`https://node.mohole.it/reservationmats/${elem}`, {
+           End_date: `${endDate[0]} ${endDate[1]}`})
+            .then((response) => {
+                this.setState({
+                    error:false,
+                    message:"Materiale reso!",
+                    loading:false,
+                    backtype:true,
+                    avail:false,
+                    arrayMaterial:[],
+                    availableMat:[],
+                    reservationMat:[]
+                });
+            }).then(()=>{
+                this.setAll();
+            }).catch((error) => {
+                this.setState({
+                    error:true,
+                    message:"Ops c'è stato un piccolo problema. Riprovare."
+                });
+        });
+    
+    })
     }
 
 
@@ -228,20 +226,27 @@ class Materials extends React.Component{
                   }
                 })*/                
               ]).then(([materiale,resMat]) => {
+               
                   let userMaterial = [];
+                  let pippo = [];
                 resMat.forEach((valore)=>{
+               
                     if(valore.user.id===JSON.parse(localStorage.getItem('user')).id){
                         userMaterial.push(valore.id)
+                     }
+                     if(valore.end_date===null){
+                         pippo.push(valore);
                      }
                 })
                 this.setState({
                   arrayMaterial:userMaterial,
                   availableMat:materiale,
-                  reservationMat:resMat,
-                  /*availableClass:classroom,*/
+                  reservationMat:pippo,
+                  backtype:true,
+                  avail:true,
                   loading: false
                 });
-                
+               
 
                
               });
@@ -418,7 +423,7 @@ class Materials extends React.Component{
 
                             <ul>                    
                                 {
-                                    (this.state.availableMat.map((item)=><ListItem  keyValue={item.id}  reservation={this.state.reservationMat} arrayMat={this.state.arrayMaterial} sendMail={this.sendEmail} checkForm={true} key={item.id} {...item}  />))               
+                                    (this.state.availableMat.map((item)=><ListItem  keyValue={item.id}  reservation={this.state.reservationMat} arrayMat={this.state.arrayMaterial} sendAggiorna={this.aggiorna} sendMail={this.sendEmail} checkForm={true} key={item.id} {...item}  />))               
                                 }
 
                             </ul>
