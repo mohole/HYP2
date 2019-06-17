@@ -1,22 +1,27 @@
 ![](src/icone/ufo-blind-white.gif)
 
-HYP is an App designed and developed by four students at [Scuola Mohole](https://scuola.mohole.it)
+HYP is an App designed and developed by four students of [Scuola Mohole](https://scuola.mohole.it)
+
+Caterina Ianeselli
+Nicolò Lombardi
+Umberto Tonella
+Marco Ontino
 
 (ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) 
 
 ## Goals of the project “φʕ•ᴥ•oʔ
-Dopo aver notato delle mancanze da parte del servizio utilizzato dalla scuola come gestionale delle attività scolastiche ci siamo messi in gioco per creare un applicazione per avvicinare le informazioni, attività, novita della scuola allo studente medio 
+Noting several missings of our scholar managment system we got involved in creating an application to connect infos,
+activities and news about the school with students.
 
-Il risultato è una PWA. 
-Il risultato finale è un prototipo, necessita fondi per essere migliorato
+The final output is a PWA (just a beta version that needs a lot of time and work).
 
 ## Getting starter
 ### Visit WebSite ~ Download PWA
-il sito è online tramite Netlify al link ==> [Happy Beaver](https://happy-beaver-hyp.netlify.com/)
+Our application is can be surfed on ==> [Happy Beaver](https://happy-beaver-hyp.netlify.com/)
 
 (ᵔᴥᵔ)
 
-### Migliorare HYP
+### Improving HYP
 
 ```sh
 git clone …. 
@@ -26,25 +31,25 @@ npm start
 ```
 ...and the magic happens ( ◔ ౪◔)⊃━☆ﾟ.*・
 
-## Tecnologie usate
+## Techs
 
-Per questo progetto siamo stati piacevolmente sfidati ad usare **REACT** e **STRAPI**.
+In this project we challenge in using **REACT** and **STRAPI**.
 
-**REACT** è un **_libreria_**  Javascript pensata per la realizzazione di User Interfaces mentre **STRAPI** viene utilizzato per lo sviluppo backend.
+**REACT** is a Javascript **_library_** for building user interfaces while **STRAPI** can be used as backend.
 
-Di seguito lasciamo i link alle loro documentazione:
+You can visit the following links for documentation:
 
 **[REACT](https://reactjs.org/)** <br/>
 **[STRAPI](https://strapi.io/)**
 
 
 ## WP-API
-Per una sezione dell'applicazione abbiamo usato un collegamento alle API di WordPress e per vedere la loro configurazione vi mandiamo al Github di **[Caterina](https://github.com/icate95/HYPsComponents_Events)**
+We used Wordpress Api to connect a part of our application to our school events dashboard. You can check configuration on github profile of **[Caterina](https://github.com/icate95/HYPsComponents_Events)**
 
-## perchè HYP2?
-~~ci fù HYP~~,
-*fallì*,
-ora c'é **HYP2**
+## Why HYP2?
+~~there was HYP~~,
+*it failed*,
+now there is **HYP2**
 
 
 ## Graphics stuff
@@ -94,6 +99,6 @@ $colors: ('web': (start: rgba(39, 14, 122, 1),
 );
 ```
 
-## si ringrazia
+## many thanks to
 Mohole
 ![](src/icone/mohole.jpg)
