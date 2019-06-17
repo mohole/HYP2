@@ -38,17 +38,15 @@ Di seguito lasciamo i link alle loro documentazione:
 **[STRAPI](https://strapi.io/)**
 
 
-## perché wp-api
-pressoché imposto...
-### come collegare wp-api
-link al github di Caterina
+## WP-API
+Per una sezione dell'applicazione abbiamo usato un collegamento alle API di WordPress e per vedere la loro configurazione vi mandiamo al Github di **[Caterina](https://github.com/icate95/HYPsComponents_Events)**
 
 ## perche HYP2
 ci fù HYP,
 falli,
 ora c'é HYP2
 
-## requiremnts
+## requirements
 node.js
 account strapi 
 
@@ -89,8 +87,6 @@ $colors: ('web': (start: rgba(39, 14, 122, 1),
 );
 ```
 
-### Animation
-![](src/icone/mohole.jpg)
-
 ## si ringrazia
 Mohole
+![](src/icone/mohole.jpg)
