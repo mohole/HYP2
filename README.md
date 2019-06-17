@@ -52,13 +52,13 @@ ora c'é **HYP2**
 ```sh
 $font-title: 'Baloo Bhai',cursive;
 ```
-![fontBaloo](src/cestino/baloo.png)
+![fontBaloo](https://github.com/icate95/HYP2/upload/master/src/cestinobaloo.png)
 
 ```sh
 $font-text: 'Open Sans', sans-serif;
 ```
 
-![fontOpen](src/cestino/openSans.png)
+![fontOpen](https://github.com/icate95/HYP2/upload/master/src/cestino/openSans.png)
 
 
 
