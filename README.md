@@ -30,8 +30,12 @@ npm start
 
 Per questo progetto siamo stati piacevolmente sfidati ad usare **REACT** e **STRAPI**.
 
-**REACT** è un +framework+
+**REACT** è un **_libreria_**  Javascript pensata per la realizzazione di User Interfaces mentre **STRAPI** viene utilizzato per lo sviluppo backend.
 
+Di seguito lasciamo i link alle loro documentazione:
+
+**[REACT](https://reactjs.org/)** <br/>
+**[STRAPI](https://strapi.io/)**
 
 
 ## perché wp-api
