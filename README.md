@@ -41,21 +41,28 @@ Di seguito lasciamo i link alle loro documentazione:
 ## WP-API
 Per una sezione dell'applicazione abbiamo usato un collegamento alle API di WordPress e per vedere la loro configurazione vi mandiamo al Github di **[Caterina](https://github.com/icate95/HYPsComponents_Events)**
 
-## perche HYP2
-ci fù HYP,
-falli,
-ora c'é HYP2
+## perchè HYP2?
+~~ci fù HYP~~,
+*fallì*,
+ora c'é **HYP2**
 
-## requirements
-node.js
-account strapi 
 
 ## Graphics stuff
 ### Font
 ```sh
 $font-title: 'Baloo Bhai',cursive;
+```
+![fontBaloo](src/cestino/baloo.png)
+
+```sh
 $font-text: 'Open Sans', sans-serif;
 ```
+
+![fontOpen](src/cestino/openSans.png)
+
+
+
+
 ### pattern
 ```sh
 
