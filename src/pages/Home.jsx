@@ -101,15 +101,10 @@ class SummaryRewards extends React.Component{
         //     console.log('ok')
             if (data < data_fine) {
               return <Ribbon key={p.id} title={p.title} classi='card-rewards'/>;
+            } else {
+              return '';
             }
         
-
-        // } else {
-        //   return(
-        //     <p> Nessuna lezione </p>
-        //   )
-        // }
-        // });
       });
       return (
         <>
