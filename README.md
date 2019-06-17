@@ -1,68 +1,95 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](src/icone/ufo-blind.gif)
 
-## Available Scripts
+HYP is an App designed and developed by four students at [Scuola Mohole](https://scuola.mohole.it)
 
-In the project directory, you can run:
+(ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) 
 
-### `npm start`
+## Goals of the project “φʕ•ᴥ•oʔ
+Dopo aver notato delle mancanze da parte del servizio utilizzato dalla scuola come gestionale delle attività scolastiche ci siamo messi in gioco per creare un applicazione per avvicinare le informazioni, attività, novita della scuola allo studente medio 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Il risultato è una PWA. 
+Il risultato finale è un prototipo, necessita fondi per essere migliorato
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Getting starter
+### Visit WebSite ~ Download PWA
+il sito è online tramite Netlify al link ==> [Happy Beaver](https://happy-beaver-hyp.netlify.com/)
 
-### `npm test`
+(ᵔᴥᵔ)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Migliorare HYP
 
-### `npm run build`
+```sh
+git clone …. 
+cd hyp …. 
+npm install
+npm start
+```
+...and the magic happens ( ◔ ౪◔)⊃━☆ﾟ.*・
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Perché React
+pressochè tecnologia imposta 
+perche noi crediamo nell'imparare mettendo in pratica le nozioni 
+per consolidare le competenze
+    
+## Perché Strapi
+come collegare strapi
+### axios
+link al github di Marco 
+link al github di Nicolo
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## perché wp-api
+pressoché imposto...
+### come collegare wp-api
+link al github di Caterina
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## perche HYP2
+ci fù HYP,
+falli,
+ora c'é HYP2
 
-### `npm run eject`
+## requiremnts
+node.js
+account strapi 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Graphics stuff
+### Font
+```sh
+$font-title: 'Baloo Bhai',cursive;
+$font-text: 'Open Sans', sans-serif;
+```
+### pattern
+```sh
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+$colors: ('web': (start: rgba(39, 14, 122, 1),
+    end: rgba(184, 14, 122, 1),
+    angle: 30deg),
+  'acting': (start:  rgba(178, 103, 136, 1) ,
+    end: rgba(255, 103, 160, 1),
+    angle: 30deg),
+  'fotografia': (start:  rgba(49, 172, 228, 1),
+    end: rgba(142, 152, 228, 1),
+    angle: 30deg),
+  'storytelling': (start:  rgba(246, 109, 155, 1),
+    end: rgba(211, 156, 228, 1),
+    angle: 30deg),
+  'filmaking': (start: rgba(79, 221, 160, 1),
+    end:rgba(181,
+    255, 168, 1),
+    angle: 30deg),
+  'fumetto': (start: rgba(39, 14, 122, 1),
+    end: rgba(184, 14, 122, 1),
+    angle: 30deg),
+  '3d': (start: rgba(39, 14, 122, 1),
+    end: rgba(184, 14, 122, 1),
+    angle: 30deg),
+  'grafica': (start: #ff2915,
+    end: #ffdd47,
+    angle: 30deg),
+);
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Animation
+![](src/icone/mohole.jpg)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## si ringrazia
+Mohole
