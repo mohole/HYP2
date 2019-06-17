@@ -1,4 +1,4 @@
-![](src/icone/ufo-blind.gif)
+![](src/icone/ufo-blind-white.gif)
 
 HYP is an App designed and developed by four students at [Scuola Mohole](https://scuola.mohole.it)
 
@@ -26,16 +26,13 @@ npm start
 ```
 ...and the magic happens ( ◔ ౪◔)⊃━☆ﾟ.*・
 
-## Perché React
-pressochè tecnologia imposta 
-perche noi crediamo nell'imparare mettendo in pratica le nozioni 
-per consolidare le competenze
-    
-## Perché Strapi
-come collegare strapi
-### axios
-link al github di Marco 
-link al github di Nicolo
+## Tecnologie usate
+
+Per questo progetto siamo stati piacevolmente sfidati ad usare **REACT** e **STRAPI**.
+
+**REACT** è un +framework+
+
+
 
 ## perché wp-api
 pressoché imposto...
