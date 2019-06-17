@@ -12,11 +12,7 @@ class Form extends React.Component{
                 <>
                 <form action="#" materiale={this.props.materialid}>
                     <h2>Prenotazione</h2>            
-                  {/*  <select>
-                    <option value={this.props.classroomid}>{this.props.classroomid}</option>
-                    <option value="classe">classe</option>
-                    </select>*/}
-                    <input type="submit"  value="Get" onClick={this.props.sendMail} />
+                    <input type="submit"  value="Gets" onClick={this.props.sendMail} />
                 </form>
         
 
@@ -36,9 +32,10 @@ class ListItem extends React.Component{
         this.state={
             clicked:false,
             form:false,
-            porco:true,
+            backtype:true,
             avail:true,
-            ziocan:0
+            reservationuser:0,
+            message:''
         };
         
         
@@ -47,6 +44,7 @@ class ListItem extends React.Component{
         this.check=this.check.bind(this);
         this.checkX=this.checkX.bind(this);
         this.aggiorna=this.aggiorna.bind(this);
+        this.checkBack=this.checkBack.bind(this);
 
         
     }
@@ -68,17 +66,22 @@ class ListItem extends React.Component{
                 console.log()
                     if(reserv.material.id===this.props.keyValue && reserv.user.id===JSON.parse(localStorage.getItem('user')).id){       
                         this.setState({
-                            porco:false,
-                            ziocan:reserv.id
+                            backtype:false,
+                            reservationuser:reserv.id,
                         });
                       }
-                      console.log(`boh${this.state.porco}`);
-                
-                
+                      console.log(`boh${this.state.backtype}`);
             }
         })
-
      }
+
+     checkBack(){
+        this.setState({
+            backtype:true,
+            avail:true
+        });
+     }
+     
     openForm(e){
         document.querySelector("ul").scrollTo(0, Math.abs( e.currentTarget.offsetTop-115));      
         this.setState({
@@ -97,38 +100,67 @@ class ListItem extends React.Component{
    }
 
    aggiorna(e){
-    e.preventDefault();
-    console.log(this.state.ziocan);
-    let token=JSON.parse(localStorage.getItem('user')).token;
-    axios.put(`https://node.mohole.it/reservationmats/${this.state.ziocan}`, {
-       End_date:"2019-06-12 20:04:07"})
+    setTimeout(() => {
+        let today = new Date();
+                let dd = today.getDate();
+                let mm = today.getMonth()+1; //As January is 0.
+                let yyyy = today.getFullYear();
+                let fullDate=`${yyyy}-${mm}-${dd}`;
+                let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                let endDate=[fullDate,time];
+
+    //e.preventDefault();
+    console.log(this.state.reservationuser);
+    //let token=JSON.parse(localStorage.getItem('user')).token;
+    axios.put(`https://node.mohole.it/reservationmats/${this.state.reservationuser}`, {
+       End_date: `${endDate[0]} ${endDate[1]}`})
         .then((response) => {
             this.setState({
                 error:false,
-                message:"Materiale prenotato!"
+                message:"Materiale reso!",
+                form:false,
+                backtype:true,
+                avail:true,
+                tnt:true
             });
+            console.log("ciao");
+            window.location.reload()
         }).catch((error) => {
             this.setState({
                 error:true,
                 message:"Ops c'è stato un piccolo problema. Riprovare."
             });
     });
+
+})
 }
   
     
     render(){
+        let show="hidden";
+        let typeMsg;
+        if(this.state.message!==''){
+            show="show";
+            if(this.state.error){
+                typeMsg="error";
+            }else{
+                typeMsg="success"
+            }
+        }
         
         if(!this.state.clicked){
-            return(
-             
-                            <li materialid={this.props.keyValue} onClick={this.state.avail?this.openForm:null}><span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <a href="#" className={!this.state.porco?'show':'hidden'} onClick={this.aggiorna}>Back</a> </li>
+            return(     
+                <>        
+                <p className={`${show} ${typeMsg}`} >{this.state.message}</p>
 
+                <li materialid={this.props.keyValue} onClick={this.state.avail?this.openForm:null}><span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <span href="#" className={!this.state.backtype?'show':'hidden'} onClick={this.aggiorna && this.checkBack}>Back</span> </li>
+              </>
             );
         }else{
             return(
                 <li className="formOpen">
                     <div className="title">
-                    <span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <a href="#" onClick={this.closeForm} >X</a>
+                    <span className={this.state.avail?"free":"noFree"}></span><p><b>{this.props.name}</b></p> <span href="#" onClick={this.closeForm} >X</span>
                     </div>   
                     <Form sendMail={this.props.sendMail} materialid={this.props.keyValue} />
                 </li>
@@ -159,7 +191,6 @@ class Materials extends React.Component{
         this.formatDate=this.formatDate.bind(this);
         this.setAll=this.setAll.bind(this);
         this.setAll();
-        
 
         
     }
@@ -280,6 +311,7 @@ class Materials extends React.Component{
                     }
                     })
                     .then(response=> {
+                        
                         let checkMaterial=true;
                         response.data.forEach((valore)=>{
                             if(valore.material.id!==null){
