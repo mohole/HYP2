@@ -220,7 +220,7 @@ class Materials extends React.Component{
                 /*
                 .then(response => response.data),
                 axios
-                .get('https://node.mohole.it/rooms', {
+                .get('https://localhost:1337/rooms', {
                   headers: {
                     Authorization: `Bearer ${token}`
                   }
@@ -228,20 +228,20 @@ class Materials extends React.Component{
               ]).then(([materiale,resMat]) => {
                
                   let userMaterial = [];
-                  let pippo = [];
+                  //let pippo = [];
                 resMat.forEach((valore)=>{
                
                     if(valore.user.id===JSON.parse(localStorage.getItem('user')).id){
                         userMaterial.push(valore.id)
                      }
-                     if(valore.end_date===null){
-                         pippo.push(valore);
-                     }
+                   //  if(valore.end_date===null){
+                   //      pippo.push(valore);
+                   //  }
                 })
                 this.setState({
                   arrayMaterial:userMaterial,
                   availableMat:materiale,
-                  reservationMat:pippo,
+                  reservationMat:resMat,
                   backtype:true,
                   avail:true,
                   loading: false
