@@ -85,7 +85,7 @@ class ListItem extends React.Component{
     }
 
    componentWillMount(){
-        this.check();
+        this.check(); 
         this.checkX();
    }
     
