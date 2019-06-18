@@ -82,7 +82,7 @@ class ListItem extends React.Component{
         this.setState({
             clicked:false
         });
-    }
+    } 
 
    componentWillMount(){
         this.check(); 
