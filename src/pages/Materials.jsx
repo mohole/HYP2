@@ -174,7 +174,7 @@ class Materials extends React.Component{
                     availableMat:[],
                     reservationMat:[]                    
                 });
-                window.location.reload()
+               
 
             }).then(()=>{
                 this.setAll();
@@ -321,7 +321,7 @@ class Materials extends React.Component{
                                 this.setAll();
                             
 
-                                window.location.reload()
+                              
                             }).catch((error) => {
                                 this.setState({
                                     error:true,
