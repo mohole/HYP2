@@ -2,10 +2,10 @@
 
 HYP is an App designed and developed by four students of [Scuola Mohole](https://scuola.mohole.it)
 
-Caterina Ianeselli
-Nicolò Lombardi
-Umberto Tonella
-Marco Ontino
+- Caterina Ianeselli
+- Nicolò Lombardi
+- Umberto Tonella
+- Marco Ontino
 
 (ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) (ᵔᴥᵔ) 
 
@@ -17,9 +17,7 @@ The final output is a PWA (just a beta version that needs a lot of time and work
 
 ## Getting starter
 ### Visit WebSite ~ Download PWA
-Our application is can be surfed on ==> [Happy Beaver](https://happy-beaver-hyp.netlify.com/)
-
-(ᵔᴥᵔ)
+Our application can be surfed on ==> [Happy Beaver (ᵔᴥᵔ)](https://happy-beaver-hyp.netlify.com/)
 
 ### Improving HYP
 
@@ -33,9 +31,9 @@ npm start
 
 ## Techs
 
-In this project we challenge in using **REACT** and **STRAPI**.
+In this project we were challenged in using **REACT** and **STRAPI**.
 
-**REACT** is a Javascript **_library_** for building user interfaces while **STRAPI** can be used as backend.
+**REACT** is a Javascript **_library_** for building user interfaces, while **STRAPI** can be used as backend.
 
 You can visit the following links for documentation:
 
@@ -44,11 +42,11 @@ You can visit the following links for documentation:
 
 
 ## WP-API
-We used Wordpress Api to connect a part of our application to our school events dashboard. You can check configuration on github profile of **[Caterina](https://github.com/icate95/HYPsComponents_Events)**
+We used Wordpress Api to connect a part of our application to our school events dashboard. You can check configuration on **[Caterina's project](https://github.com/icate95/HYPsComponents_Events)**
 
 ## Why HYP2?
-~~there was HYP~~,
-*it failed*,
+~~there was HYP~~,<br/>
+*it failed*,<br/>
 now there is **HYP2**
 
 
@@ -101,4 +99,3 @@ $colors: ('web': (start: rgba(39, 14, 122, 1),
 
 ## many thanks to
 Mohole
-![](src/icone/mohole.jpg)
